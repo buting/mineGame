@@ -10,4 +10,8 @@
 
 @interface HHBombItem : NSObject
 
+@property (nonatomic, assign) BOOL haveBomb;
+@property (nonatomic, assign) BOOL haveBeenDetect;
+@property (nonatomic, assign) int bombCount;
+
 @end

@@ -10,4 +10,10 @@
 
 @implementation HHCollectionViewCell
 
+- (void)awakeFromNib
+{
+    self.layer.borderColor = [UIColor grayColor].CGColor;
+    self.layer.borderWidth = 0.5;
+}
+
 @end

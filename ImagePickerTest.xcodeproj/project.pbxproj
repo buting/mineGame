@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D0C9C54A1C3BA8F90087D987 /* bomb@2x.jpg in Resources */ = {isa = PBXBuildFile; fileRef = D0C9C5491C3BA8F90087D987 /* bomb@2x.jpg */; };
+		D0C9C54D1C3BA9210087D987 /* HHCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D0C9C54C1C3BA9210087D987 /* HHCollectionViewCell.m */; };
+		D0C9C5501C3BAB780087D987 /* HHBombItem.m in Sources */ = {isa = PBXBuildFile; fileRef = D0C9C54F1C3BAB780087D987 /* HHBombItem.m */; };
 		D0D716E51C1AA8EB0086E813 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = D0D716E41C1AA8EB0086E813 /* main.m */; };
 		D0D716E81C1AA8EB0086E813 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D0D716E71C1AA8EB0086E813 /* AppDelegate.m */; };
 		D0D716EB1C1AA8EB0086E813 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D0D716EA1C1AA8EB0086E813 /* ViewController.m */; };
@@ -35,6 +38,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		D0C9C5491C3BA8F90087D987 /* bomb@2x.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "bomb@2x.jpg"; sourceTree = "<group>"; };
+		D0C9C54B1C3BA9210087D987 /* HHCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HHCollectionViewCell.h; sourceTree = "<group>"; };
+		D0C9C54C1C3BA9210087D987 /* HHCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HHCollectionViewCell.m; sourceTree = "<group>"; };
+		D0C9C54E1C3BAB780087D987 /* HHBombItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HHBombItem.h; sourceTree = "<group>"; };
+		D0C9C54F1C3BAB780087D987 /* HHBombItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HHBombItem.m; sourceTree = "<group>"; };
 		D0D716E01C1AA8EB0086E813 /* ImagePickerTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ImagePickerTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D0D716E41C1AA8EB0086E813 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		D0D716E61C1AA8EB0086E813 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -105,6 +113,11 @@
 				D0D716E71C1AA8EB0086E813 /* AppDelegate.m */,
 				D0D716E91C1AA8EB0086E813 /* ViewController.h */,
 				D0D716EA1C1AA8EB0086E813 /* ViewController.m */,
+				D0C9C54B1C3BA9210087D987 /* HHCollectionViewCell.h */,
+				D0C9C54C1C3BA9210087D987 /* HHCollectionViewCell.m */,
+				D0C9C54E1C3BAB780087D987 /* HHBombItem.h */,
+				D0C9C54F1C3BAB780087D987 /* HHBombItem.m */,
+				D0C9C5491C3BA8F90087D987 /* bomb@2x.jpg */,
 				D0D716EC1C1AA8EB0086E813 /* Main.storyboard */,
 				D0D716EF1C1AA8EB0086E813 /* Assets.xcassets */,
 				D0D716F11C1AA8EB0086E813 /* LaunchScreen.storyboard */,
@@ -243,6 +256,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D0C9C54A1C3BA8F90087D987 /* bomb@2x.jpg in Resources */,
 				D0D716F31C1AA8EB0086E813 /* LaunchScreen.storyboard in Resources */,
 				D0D716F01C1AA8EB0086E813 /* Assets.xcassets in Resources */,
 				D0D716EE1C1AA8EB0086E813 /* Main.storyboard in Resources */,
@@ -270,6 +284,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D0C9C54D1C3BA9210087D987 /* HHCollectionViewCell.m in Sources */,
+				D0C9C5501C3BAB780087D987 /* HHBombItem.m in Sources */,
 				D0D716EB1C1AA8EB0086E813 /* ViewController.m in Sources */,
 				D0D716E81C1AA8EB0086E813 /* AppDelegate.m in Sources */,
 				D0D716E51C1AA8EB0086E813 /* main.m in Sources */,
@@ -413,10 +429,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = "Brand Assets";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = ImagePickerTest/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = Chaoxinfan.ImagePickerTest;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -424,10 +443,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = "Brand Assets";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = ImagePickerTest/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = Chaoxinfan.ImagePickerTest;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
@@ -498,6 +520,7 @@
 				D0D7170F1C1AA8EB0086E813 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		D0D717101C1AA8EB0086E813 /* Build configuration list for PBXNativeTarget "ImagePickerTestTests" */ = {
 			isa = XCConfigurationList;
@@ -506,6 +529,7 @@
 				D0D717121C1AA8EB0086E813 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		D0D717131C1AA8EB0086E813 /* Build configuration list for PBXNativeTarget "ImagePickerTestUITests" */ = {
 			isa = XCConfigurationList;
@@ -514,6 +538,7 @@
 				D0D717151C1AA8EB0086E813 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
