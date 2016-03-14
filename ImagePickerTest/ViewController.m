@@ -5,6 +5,7 @@
 //  Created by .Mr.SupEr on 15/12/11.
 //  Copyright © 2015年 .Mr.SupEr. All rights reserved.
 //
+#define SCREEN_WIDTH    ([[UIScreen mainScreen]bounds].size.width)
 
 #import "ViewController.h"
 #import "HHCollectionViewCell.h"
@@ -18,7 +19,13 @@
 @property (weak, nonatomic) IBOutlet UITextField *textField;
 
 @property (nonatomic, strong) NSMutableArray *bombPositionArray;
-@property (nonatomic, assign) int bombCount;
+@property (nonatomic, assign) int bombCountSetted;
+@property (nonatomic, assign) int countOfMarkedFlags; //已经插旗的数量
+@property (nonatomic, assign) int X;  //点击数字 的横坐标
+@property (nonatomic, assign) int Y;  //点击数字 的Y坐标
+
+
+
 
 @end
 
@@ -27,8 +34,86 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
-    self.bombCount = 35;
+    self.bombCountSetted = 35;
     [self initData];
+    [self addGesture];
+
+}
+- (void)addGesture
+{
+    UILongPressGestureRecognizer *lpgr = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(handleLongPress:)];
+    lpgr.numberOfTouchesRequired = 1;
+    lpgr.minimumPressDuration = 0.2;
+    [self.collectionView addGestureRecognizer:lpgr];
+}
+
+- (void)handleLongPress:(UILongPressGestureRecognizer *)gestureRecognizer
+{
+
+    if (gestureRecognizer.state == UIGestureRecognizerStateBegan) {
+        
+        NSLog(@"handleLongPressaa");
+CGPoint point = [gestureRecognizer locationInView:self.collectionView];
+        float widthItem = SCREEN_WIDTH/rowCount;
+        NSInteger x = point.y / widthItem;
+        NSInteger y = point.x / widthItem;
+        if (x < 0 || y < 0 || x >= rowCount || y >= rowCount) {
+            return;
+        }
+        NSLog(@"test");
+        HHBombItem * item = self.bombPositionArray[x][y];
+        NSLog(@"hasBeenMarkedByFlag 00-> %d",item.hasBeenMarkedByFlag);
+
+        if (item.haveBeenDetect) {
+            return;
+        }
+        if (item.hasBeenMarkedByFlag) {
+            item.hasBeenMarkedByFlag = NO;
+            --self.countOfMarkedFlags;
+        } else {
+            item.hasBeenMarkedByFlag = YES;
+            NSLog(@"hasBeenMarkedByFlag 11-> %d",item.hasBeenMarkedByFlag);
+
+            ++self.countOfMarkedFlags;
+        }
+        [self.collectionView reloadData];
+    }
+}
+- (void)showAroundZoneX:(int )x Y:(int)y  {
+    if (x < 0 || y < 0 || x >= rowCount || y >= rowCount) {
+        return;
+    }
+    HHBombItem * item = self.bombPositionArray[x][y];
+    if (x >= _X-1 && x <= _X+1 &&y >=_Y-1 && y <=_Y+1) {//对相邻九宫格的处理
+        item.haveBeenDetect = YES;
+        [self showZeroZoneX:x-1 Y:y-1];
+        [self showZeroZoneX:x-1 Y:y];
+        [self showZeroZoneX:x-1 Y:y+1];
+        [self showZeroZoneX:x Y:y-1];
+        [self showZeroZoneX:x Y:y+1];
+        [self showZeroZoneX:x+1 Y:y-1];
+        [self showZeroZoneX:x+1 Y:y];
+        [self showZeroZoneX:x+1 Y:y+1];
+        
+    } else {
+        if (item.haveBeenDetect) {
+            return;
+        }
+        item.haveBeenDetect = YES;
+        if (item.bombCount) {
+            return;
+        }
+    }
+    item.haveBeenDetect = YES;
+    [self showZeroZoneX:x-1 Y:y-1];
+    [self showZeroZoneX:x-1 Y:y];
+    [self showZeroZoneX:x-1 Y:y+1];
+    [self showZeroZoneX:x Y:y-1];
+    [self showZeroZoneX:x Y:y+1];
+    [self showZeroZoneX:x+1 Y:y-1];
+    [self showZeroZoneX:x+1 Y:y];
+    [self showZeroZoneX:x+1 Y:y+1];
+    
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -38,9 +123,10 @@
 }
 
 - (IBAction)didTapRestartButton:(id)sender {
-    self.bombCount = self.textField.text.intValue;
+    self.bombCountSetted = self.textField.text.intValue;
     self.textField.text = nil;
-    self.bombCount = MAX(self.bombCount,20);
+    self.countOfMarkedFlags = 0;
+    self.bombCountSetted = MAX(self.bombCountSetted,20);
     [self.textField resignFirstResponder];
     [self initData];
     [self.collectionView reloadData];
@@ -53,7 +139,8 @@
 - (void)initData
 {
     self.bombPositionArray = [NSMutableArray array];
-    int bombCount = self.bombCount;
+    int bombCountSetted = self.bombCountSetted;
+    self.countOfMarkedFlags = 0;
     for (int i = 0; i < rowCount; ++i) {
         
         NSMutableArray *rowArray = [NSMutableArray array];
@@ -63,13 +150,13 @@
             HHBombItem *item = [[HHBombItem alloc] init];
             [rowArray addObject:item];
             
-            if (bombCount) {
+            if (bombCountSetted) {
                 
-                BOOL haveBomb = arc4random()%100 > (100 - self.bombCount);
+                BOOL haveBomb = arc4random()%100 > (100 - self.bombCountSetted);
                 
                 if (haveBomb) {
                     item.haveBomb = YES;
-                    bombCount--;
+                    bombCountSetted--;
                 }
             }
         }
@@ -167,6 +254,7 @@
             cell.numberLabel.hidden = item.bombCount ? NO : YES;
         }
     } else {
+        cell.flagView.hidden=!item.hasBeenMarkedByFlag;
         cell.maskView.hidden = NO;
         cell.imageView.hidden = YES;
         cell.numberLabel.hidden = YES;
@@ -179,8 +267,21 @@
 {
     HHBombItem *item = self.bombPositionArray[indexPath.section][indexPath.item];
     if (item.haveBeenDetect) {
+        if (item.haveBomb) {
+            return;
+        } else {
+            _X = (int)indexPath.section;
+            _Y = (int)(indexPath).item;
+            [self showAroundZoneX:_X Y:_Y];
+        }
+    }
+    if (item.hasBeenMarkedByFlag) {
+        item.hasBeenMarkedByFlag = NO;
+        --self.countOfMarkedFlags;
+        [collectionView reloadItemsAtIndexPaths:@[indexPath]];
         return;
     }
+    
     if (item.haveBomb) {
         item.haveBeenDetect = YES;
         [collectionView reloadData];

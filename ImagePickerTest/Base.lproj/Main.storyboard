@@ -49,7 +49,18 @@
                                                 </label>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cAK-iS-Na3">
                                                     <rect key="frame" x="0.0" y="0.0" width="40" height="40"/>
+                                                    <subviews>
+                                                        <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="flag.png" translatesAutoresizingMaskIntoConstraints="NO" id="Ui7-QY-9s0" userLabel="flagView">
+                                                            <rect key="frame" x="0.0" y="0.0" width="40" height="40"/>
+                                                        </imageView>
+                                                    </subviews>
                                                     <color key="backgroundColor" red="0.87843137250000003" green="0.87843137250000003" blue="0.87843137250000003" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <constraints>
+                                                        <constraint firstItem="Ui7-QY-9s0" firstAttribute="leading" secondItem="cAK-iS-Na3" secondAttribute="leading" id="FFo-ST-b9l"/>
+                                                        <constraint firstAttribute="trailing" secondItem="Ui7-QY-9s0" secondAttribute="trailing" id="LeQ-GK-jea"/>
+                                                        <constraint firstItem="Ui7-QY-9s0" firstAttribute="top" secondItem="cAK-iS-Na3" secondAttribute="top" id="qfD-vM-aE8"/>
+                                                        <constraint firstAttribute="bottom" secondItem="Ui7-QY-9s0" secondAttribute="bottom" id="twf-9o-g4i"/>
+                                                    </constraints>
                                                 </view>
                                             </subviews>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -69,6 +80,7 @@
                                             <constraint firstItem="cAK-iS-Na3" firstAttribute="top" secondItem="Oof-Hj-hgO" secondAttribute="top" id="zvQ-3l-pjq"/>
                                         </constraints>
                                         <connections>
+                                            <outlet property="flagView" destination="f2a-1p-yOK" id="U3l-Dn-hy7"/>
                                             <outlet property="imageView" destination="H2e-2Q-d3S" id="8oG-HJ-Nzq"/>
                                             <outlet property="maskView" destination="cAK-iS-Na3" id="bfy-gt-Zxw"/>
                                             <outlet property="numberLabel" destination="f2a-1p-yOK" id="J6a-Mo-nJM"/>
@@ -135,5 +147,6 @@
     </scenes>
     <resources>
         <image name="bomb.jpg" width="500" height="500"/>
+        <image name="flag.png" width="72" height="72"/>
     </resources>
 </document>
