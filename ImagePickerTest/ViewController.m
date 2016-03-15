@@ -81,11 +81,10 @@ CGPoint point = [gestureRecognizer locationInView:self.collectionView];
 }
 
 -(int)checkAroundFlagNumsWithPositionX:(int) x Y:(int)y{
-    int numOfFlags=0;
-    for (int i=x-1; i<=x+1; i++) {
-        for (int j=y-1; j<=y+1; j++) {
+    int numOfFlags = 0;
+    for (int i = x-1; i <= x+1; i++) {
+        for (int j = y-1; j <= y+1; j++) {
             HHBombItem * item = self.bombPositionArray[i][j];
-
             if (item.hasBeenMarkedByFlag) {
                 numOfFlags++;
             }
@@ -94,26 +93,41 @@ CGPoint point = [gestureRecognizer locationInView:self.collectionView];
     return numOfFlags;
 }
 
+// 检测九宫格内已经爆炸的炸弹
+-(int)checkAroundBoomedBombNumsWithPositionX:(int) x Y:(int)y{
+    int numOfBombs = 0;
+    for (int i = x-1; i <= x+1; i++) {
+        for (int j = y-1; j <= y+1; j++) {
+            HHBombItem * item = self.bombPositionArray[i][j];
+            if (item.haveBomb&&item.haveBeenDetect) {
+                numOfBombs++;
+            }
+        }
+    }
+    return numOfBombs;
+}
 - (void)showAroundZoneX:(int )x Y:(int)y  {
     if (x < 0 || y < 0 || x >= rowCount || y >= rowCount) {
         return;
     }
     HHBombItem * item = self.bombPositionArray[x][y];
     
-    //查询附近的插旗数量，如果插旗数量！=数字，return
-   int numOfFlagsAroundItem = [self checkAroundFlagNumsWithPositionX:x Y:y];
-    if (item.bombCount != numOfFlagsAroundItem){
+    //查询附近的插旗数量和已经爆炸的地雷的总数，如果！=数字，return
+    int numOfFlagsAroundItem        = [self checkAroundFlagNumsWithPositionX:x Y:y];
+    int numOfBoomedBombsAroundItem  = [self checkAroundBoomedBombNumsWithPositionX:x Y:y];
+
+    if (item.bombCount != (numOfFlagsAroundItem+numOfBoomedBombsAroundItem)){
         return;
     }
-
-
     //对相邻九宫格的处理
     if (x >= _X-1 && x <= _X+1 &&y >=_Y-1 && y <=_Y+1) {
         item.haveBeenDetect = YES;
-        if (item.hasBeenMarkedByFlag) { //如果有插错的旗，设置为已经掀开，刷新UI。
+        if (item.hasBeenMarkedByFlag&&item.haveBomb) { //如果旗插对了，不开，刷新UI。
+            return;
+        }
+        if (item.hasBeenMarkedByFlag&&item.haveBomb) { //如果有插错的旗，设置为已经掀开，刷新UI。
             --self.countOfMarkedFlags;
         }
-        
         [self showZeroZoneX:x-1 Y:y-1];
         [self showZeroZoneX:x-1 Y:y];
         [self showZeroZoneX:x-1 Y:y+1];
@@ -122,7 +136,6 @@ CGPoint point = [gestureRecognizer locationInView:self.collectionView];
         [self showZeroZoneX:x+1 Y:y-1];
         [self showZeroZoneX:x+1 Y:y];
         [self showZeroZoneX:x+1 Y:y+1];
-        
     } else {
         if (item.haveBeenDetect) {
             return;
