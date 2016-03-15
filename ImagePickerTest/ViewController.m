@@ -39,7 +39,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
-    self.bombCountSetted = 35;
+    self.bombCountSetted = 5;
     [self initData];
     [self addGesture];
 
@@ -128,14 +128,38 @@ CGPoint point = [gestureRecognizer locationInView:self.collectionView];
         for (int j = MAX(y-1,0); j <= MIN(y+1,rowCount-1); j++) {
             HHBombItem * item = self.bombPositionArray[i][j];
             if (!item.haveBeenDetect && !item.hasBeenMarkedByFlag) {
-                item.haveBeenDetect = YES;  //翻开
                 [self showZeroZoneX:x Y:y];
+                item.haveBeenDetect = YES;  //翻开
+
             }
         }
     }
 
     
 }
+- (void)showZeroZoneX:(int)x Y:(int)y
+{
+    if (x < 0 || y < 0 || x >= rowCount || y >= rowCount) {
+        return;
+    }
+    HHBombItem * item = self.bombPositionArray[x][y];
+    if (item.haveBeenDetect) {
+        return;
+    }
+    item.haveBeenDetect = YES;
+    if (item.bombCount) { //因为是空白没有数字的砖块，所以附近肯定没有雷，就不需要雷的判断。
+        return;
+    }
+    [self showZeroZoneX:x-1 Y:y-1];
+    [self showZeroZoneX:x-1 Y:y];
+    [self showZeroZoneX:x-1 Y:y+1];
+    [self showZeroZoneX:x Y:y-1];
+    [self showZeroZoneX:x Y:y+1];
+    [self showZeroZoneX:x+1 Y:y-1];
+    [self showZeroZoneX:x+1 Y:y];
+    [self showZeroZoneX:x+1 Y:y+1];
+}
+
 
 - (void)viewWillAppear:(BOOL)animated
 {
@@ -147,7 +171,7 @@ CGPoint point = [gestureRecognizer locationInView:self.collectionView];
     self.bombCountSetted = self.textField.text.intValue;
     self.textField.text = nil;
     self.countOfMarkedFlags = 0;
-    self.bombCountSetted = MAX(self.bombCountSetted,20);
+    self.bombCountSetted = MAX(self.bombCountSetted,3);
     [self.textField resignFirstResponder];
     [self initData];
     [self.collectionView reloadData];
@@ -207,29 +231,6 @@ CGPoint point = [gestureRecognizer locationInView:self.collectionView];
     }
     HHBombItem * item = self.bombPositionArray[x][y];
     return item.haveBomb;
-}
-
-- (void)showZeroZoneX:(int)x Y:(int)y
-{
-    if (x < 0 || y < 0 || x >= rowCount || y >= rowCount) {
-        return;
-    }
-    HHBombItem * item = self.bombPositionArray[x][y];
-    if (item.haveBeenDetect) {
-        return;
-    }
-    item.haveBeenDetect = YES;
-    if (item.bombCount) { //因为是空白没有数字的砖块，所以附近肯定没有雷，就不需要雷的判断。
-        return;
-    }
-    [self showZeroZoneX:x-1 Y:y-1];
-    [self showZeroZoneX:x-1 Y:y];
-    [self showZeroZoneX:x-1 Y:y+1];
-    [self showZeroZoneX:x Y:y-1];
-    [self showZeroZoneX:x Y:y+1];
-    [self showZeroZoneX:x+1 Y:y-1];
-    [self showZeroZoneX:x+1 Y:y];
-    [self showZeroZoneX:x+1 Y:y+1];
 }
 
 - (void)didReceiveMemoryWarning {
