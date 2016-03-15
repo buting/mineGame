@@ -22,6 +22,7 @@
 
 @interface ViewController () <UIImagePickerControllerDelegate, UINavigationControllerDelegate, UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout>
 
+@property (strong, nonatomic) IBOutlet UILabel *timeLabel;
 @property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
 @property (weak, nonatomic) IBOutlet UITextField *textField;
 
@@ -29,8 +30,10 @@
 @property (nonatomic, assign) int bombCountSetted;
 @property (nonatomic, assign) int countOfMarkedFlags; //已经插旗的数量
 @property (nonatomic, assign) int numOfFlagsAroundItem;  //Item附近的旗的数量
+@property (nonatomic, assign) int totalTime;  //计时值
 
 
+@property (nonatomic, strong) NSTimer *timer;
 
 @end
 
@@ -39,7 +42,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
-    self.bombCountSetted = 5;
+    self.bombCountSetted = 40;
     [self initData];
     [self addGesture];
 
@@ -171,7 +174,7 @@ CGPoint point = [gestureRecognizer locationInView:self.collectionView];
     self.bombCountSetted = self.textField.text.intValue;
     self.textField.text = nil;
     self.countOfMarkedFlags = 0;
-    self.bombCountSetted = MAX(self.bombCountSetted,3);
+    self.bombCountSetted = MAX(self.bombCountSetted,20);
     [self.textField resignFirstResponder];
     [self initData];
     [self.collectionView reloadData];
@@ -183,6 +186,7 @@ CGPoint point = [gestureRecognizer locationInView:self.collectionView];
 
 - (void)initData
 {
+    _totalTime=60;
     self.bombPositionArray = [NSMutableArray array];
     int bombCountSetted = self.bombCountSetted;
     self.countOfMarkedFlags = 0;
@@ -303,11 +307,17 @@ CGPoint point = [gestureRecognizer locationInView:self.collectionView];
     }
     
     if (item.haveBomb) {
+        [_timer invalidate];
+        _totalTime=60;
+        _timer=nil;
         item.haveBeenDetect = YES;
         [collectionView reloadData];
         return;
     }
     [self showZeroZoneX:(int)indexPath.section Y:(int)indexPath.item];
+    [_timer invalidate];
+    _totalTime=60;
+    _timer=nil;
     [collectionView reloadData];
 }
 
@@ -316,5 +326,18 @@ CGPoint point = [gestureRecognizer locationInView:self.collectionView];
 {
     CGFloat screenWidth = [UIScreen mainScreen].bounds.size.width;
     return CGSizeMake(screenWidth / 10.f, screenWidth / 10.f);
+}
+-(void)changeLable{
+    int x=_totalTime-- > 0 ? _totalTime : 0 ;
+    _timeLabel.text=[NSString stringWithFormat:@"倒计时%d秒",x];
+}
+- (IBAction)startCountTime:(id)sender {
+    if (_timer) {
+        [_timer invalidate];
+        _timer=nil;
+        _totalTime=60;
+    }
+    _timer=[NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(changeLable) userInfo:nil repeats:YES];
+    [_timer fire];
 }
 @end

@@ -4,6 +4,7 @@
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
@@ -120,29 +121,72 @@
                                     <action selector="sliderChange:" destination="BYZ-38-t0r" eventType="valueChanged" id="Qkg-b9-z0p"/>
                                 </connections>
                             </slider>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="LMe-Z7-tsB">
+                                <rect key="frame" x="110" y="464" width="100" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="NYd-O3-5Qa"/>
+                                    <constraint firstAttribute="width" constant="100" id="UES-B4-21E"/>
+                                </constraints>
+                                <state key="normal">
+                                    <attributedString key="attributedTitle">
+                                        <fragment content="计时">
+                                            <attributes>
+                                                <color key="NSColor" red="1" green="0.0" blue="0.50196081400000003" alpha="1" colorSpace="calibratedRGB"/>
+                                                <font key="NSFont" size="24" name="PingFangSC-Medium"/>
+                                                <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                            </attributes>
+                                        </fragment>
+                                    </attributedString>
+                                </state>
+                                <connections>
+                                    <action selector="startCountTime:" destination="BYZ-38-t0r" eventType="touchUpInside" id="QwS-du-G5r"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="倒计时" textAlignment="center" lineBreakMode="headTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YUB-hg-qbx">
+                                <rect key="frame" x="184" y="45" width="100" height="30"/>
+                                <color key="tintColor" red="0.19994612070000001" green="0.46347986390000001" blue="0.80484913790000001" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="100" id="Xd3-wi-9Xj"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" weight="light" pointSize="17"/>
+                                <color key="textColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="59N-Z6-FpE" firstAttribute="top" secondItem="ynK-pe-Xp9" secondAttribute="bottom" constant="49" id="6cp-AA-gQL"/>
+                            <constraint firstItem="YUB-hg-qbx" firstAttribute="baseline" secondItem="ynK-pe-Xp9" secondAttribute="baseline" id="8Je-MM-8xH"/>
                             <constraint firstItem="59N-Z6-FpE" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="Mln-rP-ipS"/>
                             <constraint firstItem="ynK-pe-Xp9" firstAttribute="top" secondItem="OLU-ic-LhA" secondAttribute="bottom" id="QyC-3Q-bJR"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="YUB-hg-qbx" secondAttribute="trailing" constant="20" id="Rae-Eg-PGr"/>
                             <constraint firstItem="59N-Z6-FpE" firstAttribute="top" secondItem="rqr-Lc-Ntr" secondAttribute="bottom" constant="21" id="SIW-2d-sns"/>
+                            <constraint firstItem="LMe-Z7-tsB" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Xah-hm-zWW"/>
                             <constraint firstAttribute="trailing" secondItem="59N-Z6-FpE" secondAttribute="trailing" id="ebM-jm-EvA"/>
                             <constraint firstItem="59N-Z6-FpE" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="fkr-UQ-uqB"/>
                             <constraint firstItem="rqr-Lc-Ntr" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="hax-bb-ifW"/>
                             <constraint firstItem="OLU-ic-LhA" firstAttribute="centerX" secondItem="ynK-pe-Xp9" secondAttribute="centerX" id="l6M-Cy-tzl"/>
                             <constraint firstItem="ynK-pe-Xp9" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="na7-bn-8kI"/>
+                            <constraint firstItem="LMe-Z7-tsB" firstAttribute="top" secondItem="59N-Z6-FpE" secondAttribute="bottom" constant="20" id="pQi-Ca-ivn"/>
+                            <constraint firstItem="YUB-hg-qbx" firstAttribute="height" secondItem="ynK-pe-Xp9" secondAttribute="height" id="pv8-dU-WlF"/>
+                            <constraint firstItem="YUB-hg-qbx" firstAttribute="top" secondItem="ynK-pe-Xp9" secondAttribute="top" id="yJr-22-fNM"/>
                         </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="8Je-MM-8xH"/>
+                            </mask>
+                        </variation>
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                     <connections>
                         <outlet property="collectionView" destination="59N-Z6-FpE" id="S06-RN-bkE"/>
                         <outlet property="textField" destination="OLU-ic-LhA" id="rUz-on-eBS"/>
+                        <outlet property="timeLabel" destination="YUB-hg-qbx" id="uwI-D1-MFT"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="453" y="317"/>
+            <point key="canvasLocation" x="250" y="80"/>
         </scene>
     </scenes>
     <resources>
