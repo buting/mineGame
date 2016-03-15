@@ -5,6 +5,13 @@
 //  Created by .Mr.SupEr on 15/12/11.
 //  Copyright © 2015年 .Mr.SupEr. All rights reserved.
 //
+/*是否打印日志的配置*/
+//#define DEBUG_MODE
+#ifdef DEBUG
+#define UCLog(fmt, ...) NSLog((@"%s [Line %d] " fmt), __PRETTY_FUNCTION__, __LINE__, ##__VA_ARGS__);
+#else
+#define UCLog(...)
+#endif
 #define SCREEN_WIDTH    ([[UIScreen mainScreen]bounds].size.width)
 
 #import "ViewController.h"
@@ -62,8 +69,7 @@ CGPoint point = [gestureRecognizer locationInView:self.collectionView];
         }
         NSLog(@"test");
         HHBombItem * item = self.bombPositionArray[x][y];
-        NSLog(@"hasBeenMarkedByFlag 00-> %d",item.hasBeenMarkedByFlag);
-
+//        NSLog(@"hasBeenMarkedByFlag -> %d",item.hasBeenMarkedByFlag);
         if (item.haveBeenDetect) {
             return;
         }
@@ -72,8 +78,7 @@ CGPoint point = [gestureRecognizer locationInView:self.collectionView];
             --self.countOfMarkedFlags;
         } else {
             item.hasBeenMarkedByFlag = YES;
-            NSLog(@"hasBeenMarkedByFlag 11-> %d",item.hasBeenMarkedByFlag);
-
+//            NSLog(@"hasBeenMarkedByFlag 11-> %d",item.hasBeenMarkedByFlag);
             ++self.countOfMarkedFlags;
         }
         [self.collectionView reloadData];
@@ -82,8 +87,8 @@ CGPoint point = [gestureRecognizer locationInView:self.collectionView];
 
 -(int)checkAroundFlagNumsWithPositionX:(int) x Y:(int)y{
     int numOfFlags = 0;
-    for (int i = x-1; i <= x+1; i++) {
-        for (int j = y-1; j <= y+1; j++) {
+    for (int i = MAX(x-1,0); i <= MIN(x+1,rowCount-1); i++) {
+        for (int j = MAX(y-1,0); j <= MIN(y+1,rowCount-1); j++) {
             HHBombItem * item = self.bombPositionArray[i][j];
             if (item.hasBeenMarkedByFlag) {
                 numOfFlags++;
@@ -96,8 +101,8 @@ CGPoint point = [gestureRecognizer locationInView:self.collectionView];
 // 检测九宫格内已经爆炸的炸弹
 -(int)checkAroundBoomedBombNumsWithPositionX:(int) x Y:(int)y{
     int numOfBombs = 0;
-    for (int i = x-1; i <= x+1; i++) {
-        for (int j = y-1; j <= y+1; j++) {
+    for (int i = MAX(x-1,0); i <= MIN(x+1,rowCount-1); i++) {
+        for (int j = MAX(y-1,0); j <= MIN(y+1,rowCount-1); j++) {
             HHBombItem * item = self.bombPositionArray[i][j];
             if (item.haveBomb&&item.haveBeenDetect) {
                 numOfBombs++;
@@ -106,6 +111,7 @@ CGPoint point = [gestureRecognizer locationInView:self.collectionView];
     }
     return numOfBombs;
 }
+
 - (void)showAroundZoneX:(int )x Y:(int)y  {
     if (x < 0 || y < 0 || x >= rowCount || y >= rowCount) {
         return;
@@ -116,47 +122,20 @@ CGPoint point = [gestureRecognizer locationInView:self.collectionView];
     int numOfFlagsAroundItem        = [self checkAroundFlagNumsWithPositionX:x Y:y];
     int numOfBoomedBombsAroundItem  = [self checkAroundBoomedBombNumsWithPositionX:x Y:y];
 
-    if (item.bombCount != (numOfFlagsAroundItem+numOfBoomedBombsAroundItem)){
+    if (item.bombCount != (numOfFlagsAroundItem + numOfBoomedBombsAroundItem)){
         return;
     }
     //对相邻九宫格的处理
-    if (x >= _X-1 && x <= _X+1 &&y >=_Y-1 && y <=_Y+1) {
-        item.haveBeenDetect = YES;
-        if (item.hasBeenMarkedByFlag&&item.haveBomb) { //如果旗插对了，不开，刷新UI。
-            return;
-        }
-        if (item.hasBeenMarkedByFlag&&item.haveBomb) { //如果有插错的旗，设置为已经掀开，刷新UI。
-            --self.countOfMarkedFlags;
-        }
-        [self showZeroZoneX:x-1 Y:y-1];
-        [self showZeroZoneX:x-1 Y:y];
-        [self showZeroZoneX:x-1 Y:y+1];
-        [self showZeroZoneX:x Y:y-1];
-        [self showZeroZoneX:x Y:y+1];
-        [self showZeroZoneX:x+1 Y:y-1];
-        [self showZeroZoneX:x+1 Y:y];
-        [self showZeroZoneX:x+1 Y:y+1];
-    } else {
-        if (item.haveBeenDetect) {
-            return;
-        }
-        item.haveBeenDetect = YES;
-        if (item.hasBeenMarkedByFlag) {
-            --self.countOfMarkedFlags;
-        }
-        if (item.bombCount) {//检测到数字时已经停止，所以肯定碰不到雷，不再判断是否为雷。
-            return;
+    for (int i = MAX(x-1,0); i <= MIN(x+1,rowCount-1); i++) {
+        for (int j = MAX(y-1,0); j <= MIN(y+1,rowCount-1); j++) {
+            HHBombItem * item = self.bombPositionArray[i][j];
+            if (!item.haveBeenDetect && !item.hasBeenMarkedByFlag) {
+                item.haveBeenDetect = YES;  //翻开
+                [self showZeroZoneX:x Y:y];
+            }
         }
     }
-    item.haveBeenDetect = YES;
-    [self showZeroZoneX:x-1 Y:y-1];
-    [self showZeroZoneX:x-1 Y:y];
-    [self showZeroZoneX:x-1 Y:y+1];
-    [self showZeroZoneX:x Y:y-1];
-    [self showZeroZoneX:x Y:y+1];
-    [self showZeroZoneX:x+1 Y:y-1];
-    [self showZeroZoneX:x+1 Y:y];
-    [self showZeroZoneX:x+1 Y:y+1];
+
     
 }
 
@@ -242,7 +221,7 @@ CGPoint point = [gestureRecognizer locationInView:self.collectionView];
         return;
     }
     item.haveBeenDetect = YES;
-    if (item.bombCount) {
+    if (item.bombCount) { //因为是空白没有数字的砖块，所以附近肯定没有雷，就不需要雷的判断。
         return;
     }
     [self showZeroZoneX:x-1 Y:y-1];
