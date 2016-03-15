@@ -28,8 +28,6 @@
 @property (nonatomic, strong) NSMutableArray *bombPositionArray;
 @property (nonatomic, assign) int bombCountSetted;
 @property (nonatomic, assign) int countOfMarkedFlags; //已经插旗的数量
-@property (nonatomic, assign) int X;  //点击数字 的横坐标
-@property (nonatomic, assign) int Y;  //点击数字 的Y坐标
 @property (nonatomic, assign) int numOfFlagsAroundItem;  //Item附近的旗的数量
 
 
@@ -293,9 +291,7 @@ CGPoint point = [gestureRecognizer locationInView:self.collectionView];
         if (item.haveBomb) {
             return;
         } else {
-            _X = (int)indexPath.section;
-            _Y = (int)(indexPath).item;
-            [self showAroundZoneX:_X Y:_Y];
+            [self showAroundZoneX:(int)indexPath.section Y:(int)(indexPath).item];
         }
     }
     if (item.hasBeenMarkedByFlag) {
