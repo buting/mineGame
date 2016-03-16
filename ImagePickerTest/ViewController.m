@@ -25,6 +25,7 @@
 @property (strong, nonatomic) IBOutlet UILabel *timeLabel;
 @property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
 @property (weak, nonatomic) IBOutlet UITextField *textField;
+@property (strong, nonatomic) IBOutlet UISlider *slider;
 
 @property (nonatomic, strong) NSMutableArray *bombPositionArray;
 @property (nonatomic, assign) int bombCountSetted;
@@ -171,12 +172,19 @@ CGPoint point = [gestureRecognizer locationInView:self.collectionView];
 }
 
 - (IBAction)didTapRestartButton:(id)sender {
+    self.textField.text = [NSString stringWithFormat:@"%d",(int)self.slider.value];
     self.bombCountSetted = self.textField.text.intValue;
-    self.textField.text = nil;
+    UCLog(@"%d",self.textField.text.intValue);
     self.countOfMarkedFlags = 0;
-    self.bombCountSetted = MAX(self.bombCountSetted,10);
+    self.bombCountSetted = MAX(self.bombCountSetted,20);
     [self.textField resignFirstResponder];
     [self initData];
+    [self.timer invalidate];
+    self.timer=nil;
+    _totalTime=60;
+    _timeLabel.text=[NSString stringWithFormat:@"倒计时60秒"];
+    [self startCountTime:nil];
+ 
     [self.collectionView reloadData];
 }
 
@@ -310,6 +318,8 @@ CGPoint point = [gestureRecognizer locationInView:self.collectionView];
         [_timer invalidate];
         _totalTime=60;
         _timer=nil;
+        [self startCountTime:nil];
+
         item.haveBeenDetect = YES;
         [collectionView reloadData];
         return;
@@ -318,6 +328,7 @@ CGPoint point = [gestureRecognizer locationInView:self.collectionView];
     [_timer invalidate];
     _totalTime=60;
     _timer=nil;
+    [self startCountTime:nil];
     [collectionView reloadData];
 }
 
