@@ -46,6 +46,7 @@
     self.bombCountSetted = 40;
     [self initData];
     [self addGesture];
+    [[UIApplication sharedApplication] setIdleTimerDisabled:YES]; //不息屏
 
 }
 - (void)addGesture
