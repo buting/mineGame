@@ -19,6 +19,11 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="设置人数" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="faU-Vg-ewq">
+                                <rect key="frame" x="96" y="75" width="77" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                            </textField>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="59N-Z6-FpE">
                                 <rect key="frame" x="0.0" y="154" width="320" height="320"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -94,7 +99,7 @@
                                 </connections>
                             </collectionView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ynK-pe-Xp9">
-                                <rect key="frame" x="21" y="60" width="110" height="30"/>
+                                <rect key="frame" x="36" y="40" width="110" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="110" id="JZH-5S-nVd"/>
                                     <constraint firstAttribute="height" constant="30" id="XDS-Yx-cPb"/>
@@ -105,6 +110,15 @@
                                     <action selector="didTapRestartButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="iyx-6W-QNX"/>
                                 </connections>
                             </button>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="滑动设置雷数" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="OLU-ic-LhA">
+                                <rect key="frame" x="182" y="40" width="120" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="120" id="Y5p-MN-I4M"/>
+                                    <constraint firstAttribute="height" constant="40" id="gla-ak-qAe"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
                             <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="30" minValue="0.0" maxValue="100" translatesAutoresizingMaskIntoConstraints="NO" id="rqr-Lc-Ntr">
                                 <rect key="frame" x="18" y="103" width="284" height="31"/>
                                 <constraints>
@@ -115,17 +129,17 @@
                                 </connections>
                             </slider>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="LMe-Z7-tsB">
-                                <rect key="frame" x="110" y="494" width="100" height="50"/>
+                                <rect key="frame" x="16" y="75" width="60" height="30"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="50" id="NYd-O3-5Qa"/>
-                                    <constraint firstAttribute="width" constant="100" id="UES-B4-21E"/>
+                                    <constraint firstAttribute="height" constant="30" id="NYd-O3-5Qa"/>
+                                    <constraint firstAttribute="width" constant="60" id="UES-B4-21E"/>
                                 </constraints>
                                 <state key="normal">
                                     <attributedString key="attributedTitle">
                                         <fragment content="重新计时">
                                             <attributes>
                                                 <color key="NSColor" red="1" green="0.0" blue="0.50196081400000003" alpha="1" colorSpace="calibratedRGB"/>
-                                                <font key="NSFont" size="19" name="PingFangSC-Medium"/>
+                                                <font key="NSFont" size="13" name="PingFangSC-Medium"/>
                                                 <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
                                             </attributes>
                                         </fragment>
@@ -146,35 +160,29 @@
                                 <color key="textColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="滑动设置雷数" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="OLU-ic-LhA">
-                                <rect key="frame" x="168" y="40" width="120" height="40"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="120" id="Y5p-MN-I4M"/>
-                                    <constraint firstAttribute="height" constant="40" id="gla-ak-qAe"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="ynK-pe-Xp9" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="5" id="Gdz-iE-btC"/>
+                            <constraint firstItem="faU-Vg-ewq" firstAttribute="centerY" secondItem="LMe-Z7-tsB" secondAttribute="centerY" id="5jk-xe-QWi"/>
+                            <constraint firstItem="ynK-pe-Xp9" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="20" id="Gdz-iE-btC"/>
+                            <constraint firstItem="LMe-Z7-tsB" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="Kje-WJ-Aw1"/>
                             <constraint firstItem="59N-Z6-FpE" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" constant="30" id="Mln-rP-ipS"/>
                             <constraint firstAttribute="trailingMargin" secondItem="YUB-hg-qbx" secondAttribute="trailing" constant="10" id="Rae-Eg-PGr"/>
                             <constraint firstItem="59N-Z6-FpE" firstAttribute="top" secondItem="rqr-Lc-Ntr" secondAttribute="bottom" constant="21" id="SIW-2d-sns"/>
                             <constraint firstItem="OLU-ic-LhA" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="20" id="SoG-u4-chD"/>
                             <constraint firstItem="YUB-hg-qbx" firstAttribute="top" secondItem="OLU-ic-LhA" secondAttribute="bottom" constant="10" id="WMe-gm-MYb"/>
-                            <constraint firstItem="LMe-Z7-tsB" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Xah-hm-zWW"/>
+                            <constraint firstItem="faU-Vg-ewq" firstAttribute="leading" secondItem="LMe-Z7-tsB" secondAttribute="trailing" constant="20" id="ayg-qc-ZLK"/>
                             <constraint firstAttribute="trailing" secondItem="59N-Z6-FpE" secondAttribute="trailing" id="ebM-jm-EvA"/>
                             <constraint firstItem="59N-Z6-FpE" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="fkr-UQ-uqB"/>
+                            <constraint firstItem="LMe-Z7-tsB" firstAttribute="top" secondItem="ynK-pe-Xp9" secondAttribute="bottom" constant="5" id="h3i-8S-IZX"/>
                             <constraint firstItem="rqr-Lc-Ntr" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="hax-bb-ifW"/>
-                            <constraint firstItem="ynK-pe-Xp9" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="40" id="koc-ID-eCe"/>
-                            <constraint firstItem="LMe-Z7-tsB" firstAttribute="top" secondItem="59N-Z6-FpE" secondAttribute="bottom" constant="20" id="pQi-Ca-ivn"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="OLU-ic-LhA" secondAttribute="trailing" constant="16" id="slG-9a-Cp8"/>
+                            <constraint firstItem="ynK-pe-Xp9" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="20" id="koc-ID-eCe"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="OLU-ic-LhA" secondAttribute="trailing" constant="2" id="slG-9a-Cp8"/>
                         </constraints>
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                     <connections>
+                        <outlet property="TFSetNumOfPlayers" destination="faU-Vg-ewq" id="tG4-VM-d2i"/>
                         <outlet property="collectionView" destination="59N-Z6-FpE" id="S06-RN-bkE"/>
                         <outlet property="slider" destination="rqr-Lc-Ntr" id="7Qe-VL-5eN"/>
                         <outlet property="textField" destination="OLU-ic-LhA" id="rUz-on-eBS"/>

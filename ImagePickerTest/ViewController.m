@@ -13,6 +13,7 @@
 #define UCLog(...)
 #endif
 #define SCREEN_WIDTH    ([[UIScreen mainScreen]bounds].size.width)
+#define SCREEN_HEIGHT    ([[UIScreen mainScreen]bounds].size.height)
 
 
 #define iPhone6Plus ([UIScreen instancesRespondToSelector:@selector(currentMode)] ? CGSizeEqualToSize(CGSizeMake(960, 1704), [[UIScreen mainScreen] currentMode].size) : NO)
@@ -30,13 +31,21 @@
 @property (strong, nonatomic) IBOutlet UILabel *timeLabel;
 @property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
 @property (weak, nonatomic) IBOutlet UITextField *textField;
+@property (weak, nonatomic) IBOutlet UITextField *TFSetNumOfPlayers;
 @property (strong, nonatomic) IBOutlet UISlider *slider;
+//@property (weak, nonatomic) IBOutlet UITextField *TFOfPlayers;
+//@property (nonatomic, assign) int cntOFPlayers;
 
 @property (nonatomic, strong) NSMutableArray *bombPositionArray;
 @property (nonatomic, assign) int bombCountSetted;
 @property (nonatomic, assign) int countOfMarkedFlags; //已经插旗的数量
 @property (nonatomic, assign) int numOfFlagsAroundItem;  //Item附近的旗的数量
 @property (nonatomic, assign) int totalTime;  //计时值
+@property (nonatomic, assign) int numOfPlayers;  //
+@property (nonatomic, assign) int stepCNT;  //
+@property (nonatomic,strong)  NSMutableArray *labelArray;
+
+
 @property (nonatomic, assign) CGFloat itemWidth;
 
 
@@ -57,10 +66,87 @@
 //    }
     [self initData];
     [self addGesture];
+    [self setViewsForCountNumberOfPlayers:_numOfPlayers];
+//    [self letViewsCntPlus];
     self.textField.userInteractionEnabled=NO;
     [[UIApplication sharedApplication] setIdleTimerDisabled:YES]; //不息屏
+    
+    
+}
+-(void)setViewsForCountNumberOfPlayers:(int) numbers{
+    if (numbers) {
+        self.labelArray=[[NSMutableArray alloc] init];
+        for (int i=0; i<numbers; i++) {
+            UILabel *numLabel=[[UILabel alloc] initWithFrame:CGRectMake(SCREEN_WIDTH/numbers*i+10, SCREEN_HEIGHT-80, SCREEN_WIDTH/numbers -20,40 )];
+            numLabel.text=@"0";
+            numLabel.textAlignment=NSTextAlignmentCenter;
+            numLabel.layer.borderWidth=2.0;
+//            numLabel.backgroundColor=[UIColor blueColor];
+            numLabel.opaque=0.4;
+            [self.view addSubview:numLabel];
+            [self.labelArray addObject:numLabel];
+        }
+    }
+    
+    NSLog(@"%lu",(unsigned long)[self.view.subviews count]);
+    NSLog(@"%lu",(unsigned long)[self.labelArray count]);
 
-
+}
+-(void)letViewsCntPlus{
+    
+        int num=_stepCNT%_numOfPlayers;
+     UILabel  *  lable  =[self.labelArray objectAtIndex:num];
+        int x=        [lable.text intValue];
+        x++;
+        lable.text=[NSString stringWithFormat:@"%d",x];
+}
+- (void)initData
+{
+//    _numOfPlayers=4;
+//    _stepCNT=6;
+    self.itemWidth = SCREEN_WIDTH / rowCount;
+//    _TFOfPlayers.text=@"5";
+//    _cntOFPlayers=[_TFOfPlayers.text intValue];
+    _totalTime=60;
+    self.bombPositionArray = [NSMutableArray array];
+    int bombCountSetted = self.bombCountSetted;
+    self.countOfMarkedFlags = 0;
+    for (int i = 0; i < rowCount; ++i) {
+        
+        NSMutableArray *rowArray = [NSMutableArray array];
+        
+        for (int j = 0; j < rowCount; ++j) {
+            
+            HHBombItem *item = [[HHBombItem alloc] init];
+            [rowArray addObject:item];
+            
+            if (bombCountSetted) {
+                
+                BOOL haveBomb = arc4random()%100 > (100 - self.bombCountSetted);
+                
+                if (haveBomb) {
+                    item.haveBomb = YES;
+                    bombCountSetted--;
+                }
+            }
+        }
+        [self.bombPositionArray addObject:rowArray];
+    }
+    
+    // statistics bomb
+    for (int i = 0; i < rowCount; ++i) {
+        for (int j = 0; j < rowCount; ++j) {
+            HHBombItem *item = self.bombPositionArray[i][j];
+            item.bombCount += [self bombAtX:(i-1) Y:(j-1)];
+            item.bombCount += [self bombAtX:(i) Y:(j-1)];
+            item.bombCount += [self bombAtX:(i+1) Y:(j-1)];
+            item.bombCount += [self bombAtX:(i-1) Y:(j)];
+            item.bombCount += [self bombAtX:(i+1) Y:(j)];
+            item.bombCount += [self bombAtX:(i-1) Y:(j+1)];
+            item.bombCount += [self bombAtX:(i) Y:(j+1)];
+            item.bombCount += [self bombAtX:(i+1) Y:(j+1)];
+        }
+    }
 }
 - (void)addGesture
 {
@@ -187,11 +273,29 @@ CGPoint point = [gestureRecognizer locationInView:self.collectionView];
 
 - (IBAction)didTapRestartButton:(id)sender {
 //    if (self.textField.text==nil) {
+    _stepCNT=0;
+    _numOfPlayers=[self.TFSetNumOfPlayers.text intValue];
+    UCLog(@"%@",self.TFSetNumOfPlayers.text);
+    UCLog(@"%d",_numOfPlayers);
+    if (self.labelArray.count!=_numOfPlayers) {
+        for (UILabel *lable in self.labelArray) {
+            [lable removeFromSuperview];
+        }
+        [self.labelArray removeAllObjects];
+        //        [self sev]
+        
+        [self setViewsForCountNumberOfPlayers:_numOfPlayers];
+        
+    }else{
+        for (UILabel *lable in self.labelArray) {
+            lable.text=@"0";
+        }
+        }
         self.textField.text = [NSString stringWithFormat:@"%d",(int)self.slider.value];
-
-//    }
-    self.bombCountSetted = self.textField.text.intValue;
-    UCLog(@"%d",self.textField.text.intValue);
+        
+        //    }
+        self.bombCountSetted = self.textField.text.intValue;
+        UCLog(@"%d",self.textField.text.intValue);
     self.countOfMarkedFlags = 0;
     self.bombCountSetted = MAX(self.bombCountSetted,20);
     [self.textField resignFirstResponder];
@@ -210,52 +314,7 @@ CGPoint point = [gestureRecognizer locationInView:self.collectionView];
     self.textField.text = [NSString stringWithFormat:@"%d",(int)sender.value];
 }
 
-- (void)initData
-{
-    self.itemWidth = SCREEN_WIDTH / rowCount;
 
-    
-    _totalTime=60;
-    self.bombPositionArray = [NSMutableArray array];
-    int bombCountSetted = self.bombCountSetted;
-    self.countOfMarkedFlags = 0;
-    for (int i = 0; i < rowCount; ++i) {
-        
-        NSMutableArray *rowArray = [NSMutableArray array];
-        
-        for (int j = 0; j < rowCount; ++j) {
-            
-            HHBombItem *item = [[HHBombItem alloc] init];
-            [rowArray addObject:item];
-            
-            if (bombCountSetted) {
-                
-                BOOL haveBomb = arc4random()%100 > (100 - self.bombCountSetted);
-                
-                if (haveBomb) {
-                    item.haveBomb = YES;
-                    bombCountSetted--;
-                }
-            }
-        }
-        [self.bombPositionArray addObject:rowArray];
-    }
-    
-    // statistics bomb
-    for (int i = 0; i < rowCount; ++i) {
-        for (int j = 0; j < rowCount; ++j) {
-            HHBombItem *item = self.bombPositionArray[i][j];
-            item.bombCount += [self bombAtX:(i-1) Y:(j-1)];
-            item.bombCount += [self bombAtX:(i) Y:(j-1)];
-            item.bombCount += [self bombAtX:(i+1) Y:(j-1)];
-            item.bombCount += [self bombAtX:(i-1) Y:(j)];
-            item.bombCount += [self bombAtX:(i+1) Y:(j)];
-            item.bombCount += [self bombAtX:(i-1) Y:(j+1)];
-            item.bombCount += [self bombAtX:(i) Y:(j+1)];
-            item.bombCount += [self bombAtX:(i+1) Y:(j+1)];
-        }
-    }
-}
 
 - (BOOL)bombAtX:(int)x Y:(int)y
 {
@@ -325,7 +384,8 @@ CGPoint point = [gestureRecognizer locationInView:self.collectionView];
         if (item.haveBomb) {
             return;
         } else {
-            [self showAroundZoneX:(int)indexPath.section Y:(int)(indexPath).item];
+//            [self showAroundZoneX:(int)indexPath.section Y:(int)(indexPath).item];
+            return;
         }
     }
     if (item.hasBeenMarkedByFlag) {
@@ -334,8 +394,13 @@ CGPoint point = [gestureRecognizer locationInView:self.collectionView];
         [collectionView reloadItemsAtIndexPaths:@[indexPath]];
         return;
     }
-    
+//    [s]
     if (item.haveBomb) {
+        if (_numOfPlayers>0) {
+            [self letViewsCntPlus];
+            _stepCNT++;
+        }
+
         [_timer invalidate];
         _totalTime=60;
         _timer=nil;
@@ -344,6 +409,9 @@ CGPoint point = [gestureRecognizer locationInView:self.collectionView];
         item.haveBeenDetect = YES;
         [collectionView reloadData];
         return;
+    }
+    if (_numOfPlayers>0) {
+        _stepCNT++;
     }
     [self showZeroZoneX:(int)indexPath.section Y:(int)indexPath.item];
     [_timer invalidate];

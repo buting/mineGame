@@ -99,7 +99,7 @@
 			children = (
 				D0D716E21C1AA8EB0086E813 /* ImagePickerTest */,
 				D0D716FC1C1AA8EB0086E813 /* ImagePickerTestTests */,
-				D0D717071C1AA8EB0086E813 /* ImagePickerTestUITests */,
+				D0D717071C1AA8EB0086E813 /*   */,
 				D0D716E11C1AA8EB0086E813 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -156,12 +156,13 @@
 			path = ImagePickerTestTests;
 			sourceTree = "<group>";
 		};
-		D0D717071C1AA8EB0086E813 /* ImagePickerTestUITests */ = {
+		D0D717071C1AA8EB0086E813 /*   */ = {
 			isa = PBXGroup;
 			children = (
 				D0D717081C1AA8EB0086E813 /* ImagePickerTestUITests.m */,
 				D0D7170A1C1AA8EB0086E813 /* Info.plist */,
 			);
+			name = " ";
 			path = ImagePickerTestUITests;
 			sourceTree = "<group>";
 		};

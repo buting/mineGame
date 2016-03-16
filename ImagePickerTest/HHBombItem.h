@@ -14,5 +14,6 @@
 @property (nonatomic, assign) BOOL haveBeenDetect;
 @property (nonatomic, assign) BOOL hasBeenMarkedByFlag;
 @property (nonatomic, assign) int bombCount;
+@property (nonatomic, strong) NSString *touchPerson;
 
 @end
