@@ -14,13 +14,18 @@
 #endif
 #define SCREEN_WIDTH    ([[UIScreen mainScreen]bounds].size.width)
 
+
+#define iPhone6Plus ([UIScreen instancesRespondToSelector:@selector(currentMode)] ? CGSizeEqualToSize(CGSizeMake(960, 1704), [[UIScreen mainScreen] currentMode].size) : NO)
+
+
 #import "ViewController.h"
 #import "HHCollectionViewCell.h"
 #import "HHBombItem.h"
 
-#define rowCount 10
 
-@interface ViewController () <UIImagePickerControllerDelegate, UINavigationControllerDelegate, UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout>
+@interface ViewController () <UIImagePickerControllerDelegate, UINavigationControllerDelegate, UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout>{
+    int rowCount;
+}
 
 @property (strong, nonatomic) IBOutlet UILabel *timeLabel;
 @property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
@@ -32,6 +37,7 @@
 @property (nonatomic, assign) int countOfMarkedFlags; //已经插旗的数量
 @property (nonatomic, assign) int numOfFlagsAroundItem;  //Item附近的旗的数量
 @property (nonatomic, assign) int totalTime;  //计时值
+@property (nonatomic, assign) CGFloat itemWidth;
 
 
 @property (nonatomic, strong) NSTimer *timer;
@@ -44,16 +50,23 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
     self.bombCountSetted = 40;
+//    if (iPhone6Plus) {
+        rowCount=10;
+//    }else{
+//        rowCount=8;
+//    }
     [self initData];
     [self addGesture];
+    self.textField.userInteractionEnabled=NO;
     [[UIApplication sharedApplication] setIdleTimerDisabled:YES]; //不息屏
+
 
 }
 - (void)addGesture
 {
     UILongPressGestureRecognizer *lpgr = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(handleLongPress:)];
     lpgr.numberOfTouchesRequired = 1;
-    lpgr.minimumPressDuration = 0.2;
+    lpgr.minimumPressDuration = 1.0;
     [self.collectionView addGestureRecognizer:lpgr];
 }
 
@@ -173,7 +186,10 @@ CGPoint point = [gestureRecognizer locationInView:self.collectionView];
 }
 
 - (IBAction)didTapRestartButton:(id)sender {
-    self.textField.text = [NSString stringWithFormat:@"%d",(int)self.slider.value];
+//    if (self.textField.text==nil) {
+        self.textField.text = [NSString stringWithFormat:@"%d",(int)self.slider.value];
+
+//    }
     self.bombCountSetted = self.textField.text.intValue;
     UCLog(@"%d",self.textField.text.intValue);
     self.countOfMarkedFlags = 0;
@@ -181,6 +197,7 @@ CGPoint point = [gestureRecognizer locationInView:self.collectionView];
     [self.textField resignFirstResponder];
     [self initData];
     [self.timer invalidate];
+
     self.timer=nil;
     _totalTime=60;
     _timeLabel.text=[NSString stringWithFormat:@"倒计时60秒"];
@@ -195,6 +212,9 @@ CGPoint point = [gestureRecognizer locationInView:self.collectionView];
 
 - (void)initData
 {
+    self.itemWidth = SCREEN_WIDTH / rowCount;
+
+    
     _totalTime=60;
     self.bombPositionArray = [NSMutableArray array];
     int bombCountSetted = self.bombCountSetted;
@@ -341,7 +361,7 @@ CGPoint point = [gestureRecognizer locationInView:self.collectionView];
 }
 -(void)changeLable{
     int x=_totalTime > 0 ? _totalTime : 0 ;
-    _timeLabel.text=[NSString stringWithFormat:@"倒计时%d秒",x];
+    _timeLabel.text=[NSString stringWithFormat:@"%d秒",x];
     _totalTime--;
 }
 - (IBAction)startCountTime:(id)sender {

@@ -135,7 +135,7 @@
                                     <action selector="startCountTime:" destination="BYZ-38-t0r" eventType="touchUpInside" id="QwS-du-G5r"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="倒计时60秒" textAlignment="center" lineBreakMode="headTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YUB-hg-qbx">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="60秒" textAlignment="center" lineBreakMode="headTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YUB-hg-qbx">
                                 <rect key="frame" x="164" y="90" width="130" height="30"/>
                                 <color key="tintColor" red="0.19994612070000001" green="0.46347986390000001" blue="0.80484913790000001" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
