@@ -174,7 +174,7 @@ CGPoint point = [gestureRecognizer locationInView:self.collectionView];
     self.bombCountSetted = self.textField.text.intValue;
     self.textField.text = nil;
     self.countOfMarkedFlags = 0;
-    self.bombCountSetted = MAX(self.bombCountSetted,20);
+    self.bombCountSetted = MAX(self.bombCountSetted,10);
     [self.textField resignFirstResponder];
     [self initData];
     [self.collectionView reloadData];
@@ -328,8 +328,9 @@ CGPoint point = [gestureRecognizer locationInView:self.collectionView];
     return CGSizeMake(screenWidth / 10.f, screenWidth / 10.f);
 }
 -(void)changeLable{
-    int x=_totalTime-- > 0 ? _totalTime : 0 ;
+    int x=_totalTime > 0 ? _totalTime : 0 ;
     _timeLabel.text=[NSString stringWithFormat:@"倒计时%d秒",x];
+    _totalTime--;
 }
 - (IBAction)startCountTime:(id)sender {
     if (_timer) {
