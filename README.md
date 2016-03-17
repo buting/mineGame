@@ -1,3 +1,3 @@
 # mineGame
 the first Version is from fanchaoxin. 
-i just did less change and upLoad to mark and learn
+lcx  did the other  change 、features and upLoad to manager  and for learn
