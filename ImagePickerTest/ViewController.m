@@ -38,11 +38,11 @@
 
 @property (nonatomic, strong) NSMutableArray *bombPositionArray;
 @property (nonatomic, assign) int bombCountSetted;
-@property (nonatomic, assign) int countOfMarkedFlags; //已经插旗的数量
-@property (nonatomic, assign) int numOfFlagsAroundItem;  //Item附近的旗的数量
+@property (nonatomic, assign) int countOfMarkedFlags;
+@property (nonatomic, assign) int numOfFlagsAroundItem;  //Item附近的旗和炸弹的数量
 @property (nonatomic, assign) int totalTime;  //计时值
-@property (nonatomic, assign) int numOfPlayers;  //
-@property (nonatomic, assign) int stepCNT;  //
+@property (nonatomic, assign) int numOfPlayers;
+@property (nonatomic, assign) int stepCNT;
 @property (nonatomic,strong)  NSMutableArray *labelArray;
 
 
@@ -59,15 +59,10 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
     self.bombCountSetted = 40;
-//    if (iPhone6Plus) {
-        rowCount=10;
-//    }else{
-//        rowCount=8;
-//    }
+    rowCount = 10;
     [self initData];
     [self addGesture];
     [self setViewsForCountNumberOfPlayers:_numOfPlayers];
-//    [self letViewsCntPlus];
     self.textField.userInteractionEnabled=NO;
     [[UIApplication sharedApplication] setIdleTimerDisabled:YES]; //不息屏
     
@@ -81,7 +76,6 @@
             numLabel.text=@"0";
             numLabel.textAlignment=NSTextAlignmentCenter;
             numLabel.layer.borderWidth=2.0;
-//            numLabel.backgroundColor=[UIColor blueColor];
             numLabel.opaque=0.4;
             [self.view addSubview:numLabel];
             [self.labelArray addObject:numLabel];
@@ -102,11 +96,7 @@
 }
 - (void)initData
 {
-//    _numOfPlayers=4;
-//    _stepCNT=6;
     self.itemWidth = SCREEN_WIDTH / rowCount;
-//    _TFOfPlayers.text=@"5";
-//    _cntOFPlayers=[_TFOfPlayers.text intValue];
     _totalTime=60;
     self.bombPositionArray = [NSMutableArray array];
     int bombCountSetted = self.bombCountSetted;
@@ -171,7 +161,6 @@ CGPoint point = [gestureRecognizer locationInView:self.collectionView];
         }
         NSLog(@"test");
         HHBombItem * item = self.bombPositionArray[x][y];
-//        NSLog(@"hasBeenMarkedByFlag -> %d",item.hasBeenMarkedByFlag);
         if (item.haveBeenDetect) {
             return;
         }
@@ -180,7 +169,6 @@ CGPoint point = [gestureRecognizer locationInView:self.collectionView];
             --self.countOfMarkedFlags;
         } else {
             item.hasBeenMarkedByFlag = YES;
-//            NSLog(@"hasBeenMarkedByFlag 11-> %d",item.hasBeenMarkedByFlag);
             ++self.countOfMarkedFlags;
         }
         [self.collectionView reloadData];
@@ -272,7 +260,6 @@ CGPoint point = [gestureRecognizer locationInView:self.collectionView];
 }
 
 - (IBAction)didTapRestartButton:(id)sender {
-//    if (self.textField.text==nil) {
     _stepCNT=0;
     _numOfPlayers=[self.TFSetNumOfPlayers.text intValue];
     UCLog(@"%@",self.TFSetNumOfPlayers.text);
@@ -394,7 +381,6 @@ CGPoint point = [gestureRecognizer locationInView:self.collectionView];
         [collectionView reloadItemsAtIndexPaths:@[indexPath]];
         return;
     }
-//    [s]
     if (item.haveBomb) {
         if (_numOfPlayers>0) {
             [self letViewsCntPlus];
