@@ -44,6 +44,7 @@
 @property (nonatomic, assign) int numOfPlayers;
 @property (nonatomic, assign) int stepCNT;
 @property (nonatomic,strong)  NSMutableArray *labelArray;
+@property (nonatomic, assign) BOOL isFirstBoom; //首雷X2
 
 
 @property (nonatomic, assign) CGFloat itemWidth;
@@ -68,6 +69,10 @@
     
     
 }
+-(void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event{
+    [_TFSetNumOfPlayers resignFirstResponder];
+//    self.
+}
 -(void)setViewsForCountNumberOfPlayers:(int) numbers{
     if (numbers) {
         self.labelArray=[[NSMutableArray alloc] init];
@@ -88,14 +93,19 @@
 }
 -(void)letViewsCntPlus{
     
-        int num=_stepCNT%_numOfPlayers;
-     UILabel  *  lable  =[self.labelArray objectAtIndex:num];
-        int x=        [lable.text intValue];
+    int num=_stepCNT%_numOfPlayers;
+    UILabel  *  lable  =[self.labelArray objectAtIndex:num];
+    int x=        [lable.text intValue];
+    if (_isFirstBoom) {
         x++;
-        lable.text=[NSString stringWithFormat:@"%d",x];
+        _isFirstBoom=NO;
+    }
+    x++;
+    lable.text=[NSString stringWithFormat:@"%d",x];
 }
 - (void)initData
 {
+    self.isFirstBoom=YES;
     self.itemWidth = SCREEN_WIDTH / rowCount;
     _totalTime=60;
     self.bombPositionArray = [NSMutableArray array];
@@ -260,6 +270,7 @@ CGPoint point = [gestureRecognizer locationInView:self.collectionView];
 }
 
 - (IBAction)didTapRestartButton:(id)sender {
+    [_TFSetNumOfPlayers resignFirstResponder];
     _stepCNT=0;
     _numOfPlayers=[self.TFSetNumOfPlayers.text intValue];
     UCLog(@"%@",self.TFSetNumOfPlayers.text);
@@ -398,6 +409,7 @@ CGPoint point = [gestureRecognizer locationInView:self.collectionView];
     }
     if (_numOfPlayers>0) {
         _stepCNT++;
+
     }
     [self showZeroZoneX:(int)indexPath.section Y:(int)indexPath.item];
     [_timer invalidate];

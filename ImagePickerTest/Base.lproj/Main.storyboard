@@ -105,7 +105,9 @@
                                     <constraint firstAttribute="height" constant="30" id="XDS-Yx-cPb"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
-                                <state key="normal" title="开始游戏"/>
+                                <state key="normal" title="开始游戏">
+                                    <color key="titleColor" red="1" green="0.10725108401536521" blue="0.38580919253016455" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
                                 <connections>
                                     <action selector="didTapRestartButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="iyx-6W-QNX"/>
                                 </connections>
@@ -161,7 +163,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.78010427849999997" green="0.8253026832" blue="0.81100725569999998" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="faU-Vg-ewq" firstAttribute="centerY" secondItem="LMe-Z7-tsB" secondAttribute="centerY" id="5jk-xe-QWi"/>
                             <constraint firstItem="ynK-pe-Xp9" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="20" id="Gdz-iE-btC"/>
