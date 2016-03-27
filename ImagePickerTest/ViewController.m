@@ -23,6 +23,7 @@
 #import "HHCollectionViewCell.h"
 #import "HHBombItem.h"
 
+// TODO :增加当前计数的高亮显示
 
 @interface ViewController () <UIImagePickerControllerDelegate, UINavigationControllerDelegate, UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout>{
     int rowCount;
@@ -35,6 +36,8 @@
 @property (strong, nonatomic) IBOutlet UISlider *slider;
 //@property (weak, nonatomic) IBOutlet UITextField *TFOfPlayers;
 //@property (nonatomic, assign) int cntOFPlayers;
+
+
 
 @property (nonatomic, strong) NSMutableArray *bombPositionArray;
 @property (nonatomic, assign) int bombCountSetted;
