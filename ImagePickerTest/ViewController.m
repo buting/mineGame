@@ -24,6 +24,7 @@
 #import "HHBombItem.h"
 
 // TODO :增加当前计数的高亮显示
+// TODO :bnr的自己新增的高级联系代码提交到 git ,另外这几天忙着公司工作内容，先停。
 
 @interface ViewController () <UIImagePickerControllerDelegate, UINavigationControllerDelegate, UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout>{
     int rowCount;
