@@ -59,6 +59,11 @@
 @end
 
 @implementation ViewController
+- (IBAction)passBtnDown:(id)sender {
+    [self letViewsCntPlus];
+    [self letViewsHilighted];
+    self.stepCNT++;
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -83,6 +88,7 @@
         for (int i=0; i<numbers; i++) {
             UILabel *numLabel=[[UILabel alloc] initWithFrame:CGRectMake(SCREEN_WIDTH/numbers*i+10, SCREEN_HEIGHT-80, SCREEN_WIDTH/numbers -20,40 )];
             numLabel.text=@"0";
+            numLabel.textColor=[UIColor blackColor];
             numLabel.textAlignment=NSTextAlignmentCenter;
             numLabel.layer.borderWidth=2.0;
             numLabel.opaque=0.4;
@@ -106,6 +112,34 @@
     }
     x++;
     lable.text=[NSString stringWithFormat:@"%d",x];
+    lable.textColor=[UIColor blackColor];
+
+}
+-(void)letViewsHilighted{
+    
+    int num=_stepCNT%_numOfPlayers;
+    
+//    int hilighted ;
+//    if (num == self.labelArray.count) {
+//        hilighted = 0;
+//    } else {
+//        hilighted = num +1;
+//    }
+
+//    
+    for ( int i =0 ; i<self.labelArray.count; i++) {
+        
+        if (i==num) {
+            UILabel  *  lable  =[self.labelArray objectAtIndex:i];
+            lable.textColor=[UIColor redColor];
+        } else {
+            UILabel  *  lable  =[self.labelArray objectAtIndex:i];
+            lable.textColor=[UIColor blackColor];
+        
+        }
+        
+    }
+    
 }
 - (void)initData
 {
@@ -381,6 +415,7 @@ CGPoint point = [gestureRecognizer locationInView:self.collectionView];
 #pragma mark - UICollectionViewDelegate
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
 {
+    [self letViewsHilighted];
     HHBombItem *item = self.bombPositionArray[indexPath.section][indexPath.item];
     if (item.haveBeenDetect) {
         if (item.haveBomb) {
@@ -408,6 +443,7 @@ CGPoint point = [gestureRecognizer locationInView:self.collectionView];
         [self startCountTime:nil];
 
         item.haveBeenDetect = YES;
+        [self letViewsHilighted];
         [collectionView reloadData];
         return;
     }
@@ -415,6 +451,8 @@ CGPoint point = [gestureRecognizer locationInView:self.collectionView];
         _stepCNT++;
 
     }
+    [self letViewsHilighted];
+
     [self showZeroZoneX:(int)indexPath.section Y:(int)indexPath.item];
     [_timer invalidate];
     _totalTime=60;

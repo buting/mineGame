@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9532" systemVersion="15C50" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
@@ -112,7 +112,7 @@
                                     <action selector="didTapRestartButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="iyx-6W-QNX"/>
                                 </connections>
                             </button>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="滑动设置雷数" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="OLU-ic-LhA">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="滑动设置雷数" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="OLU-ic-LhA" userLabel="滑动">
                                 <rect key="frame" x="182" y="40" width="120" height="40"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="120" id="Y5p-MN-I4M"/>
@@ -162,11 +162,23 @@
                                 <color key="textColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="l98-pF-Z4X">
+                                <rect key="frame" x="129" y="40" width="33" height="30"/>
+                                <state key="normal" title="pass"/>
+                                <connections>
+                                    <action selector="passBtnDown:" destination="BYZ-38-t0r" eventType="touchUpInside" id="cFZ-io-LB7"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.78010427849999997" green="0.8253026832" blue="0.81100725569999998" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
+                            <constraint firstItem="l98-pF-Z4X" firstAttribute="centerY" secondItem="faU-Vg-ewq" secondAttribute="centerY" id="1Zt-1k-3m9"/>
+                            <constraint firstItem="l98-pF-Z4X" firstAttribute="centerX" secondItem="faU-Vg-ewq" secondAttribute="centerX" id="1cn-Pc-wUI"/>
+                            <constraint firstItem="l98-pF-Z4X" firstAttribute="trailing" secondItem="OLU-ic-LhA" secondAttribute="leading" constant="-20" id="3WH-io-Xba"/>
+                            <constraint firstItem="l98-pF-Z4X" firstAttribute="centerY" secondItem="ynK-pe-Xp9" secondAttribute="centerY" id="4ka-57-W0b"/>
                             <constraint firstItem="faU-Vg-ewq" firstAttribute="centerY" secondItem="LMe-Z7-tsB" secondAttribute="centerY" id="5jk-xe-QWi"/>
                             <constraint firstItem="ynK-pe-Xp9" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="20" id="Gdz-iE-btC"/>
+                            <constraint firstItem="l98-pF-Z4X" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="20" id="Kdh-m7-RO1"/>
                             <constraint firstItem="LMe-Z7-tsB" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="Kje-WJ-Aw1"/>
                             <constraint firstItem="59N-Z6-FpE" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" constant="30" id="Mln-rP-ipS"/>
                             <constraint firstAttribute="trailingMargin" secondItem="YUB-hg-qbx" secondAttribute="trailing" constant="10" id="Rae-Eg-PGr"/>
@@ -179,8 +191,17 @@
                             <constraint firstItem="LMe-Z7-tsB" firstAttribute="top" secondItem="ynK-pe-Xp9" secondAttribute="bottom" constant="5" id="h3i-8S-IZX"/>
                             <constraint firstItem="rqr-Lc-Ntr" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="hax-bb-ifW"/>
                             <constraint firstItem="ynK-pe-Xp9" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="20" id="koc-ID-eCe"/>
+                            <constraint firstItem="l98-pF-Z4X" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="20" id="lfS-ku-jWA"/>
                             <constraint firstAttribute="trailingMargin" secondItem="OLU-ic-LhA" secondAttribute="trailing" constant="2" id="slG-9a-Cp8"/>
                         </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="1Zt-1k-3m9"/>
+                                <exclude reference="1cn-Pc-wUI"/>
+                                <exclude reference="Kdh-m7-RO1"/>
+                                <exclude reference="lfS-ku-jWA"/>
+                            </mask>
+                        </variation>
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                     <connections>
