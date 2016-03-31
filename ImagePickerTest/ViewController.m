@@ -22,7 +22,12 @@
 #import "ViewController.h"
 #import "HHCollectionViewCell.h"
 #import "HHBombItem.h"
+#import <AudioToolbox/AudioToolbox.h>
+#import "AppDelegate.h"
+#import "AppDelegate+Audio.h"
+static SystemSoundID soundplay_background = 0;
 
+@import AVFoundation;
 // TODO :增加当前计数的高亮显示
 // TODO :bnr的自己新增的高级联系代码提交到 git ,另外这几天忙着公司工作内容，先停。
 
@@ -67,6 +72,11 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    [[NSUserDefaults standardUserDefaults] setObject:@"YES" forKey:@"CFG_SOUND_ON"];
+
+    
+//    [self testTingTong];
     // Do any additional setup after loading the view, typically from a nib.
     self.bombCountSetted = 40;
     rowCount = 10;
@@ -74,7 +84,7 @@
     [self addGesture];
     [self setViewsForCountNumberOfPlayers:_numOfPlayers];
     self.textField.userInteractionEnabled=NO;
-    [[UIApplication sharedApplication] setIdleTimerDisabled:YES]; //不息屏
+//    [[UIApplication sharedApplication] setIdleTimerDisabled:YES]; //不息屏
     
     
 }
@@ -116,8 +126,15 @@
 
 }
 -(void)letViewsHilighted{
-    
-    int num=_stepCNT%_numOfPlayers;
+    int num;
+    if (_numOfPlayers) {
+     num  = _stepCNT%_numOfPlayers;
+    } else{
+        num = 0;
+//    UIAlertView *alert =[[UIAlertView alloc] initWithTitle:@"提示" message:@"请设置人数" delegate:nil cancelButtonTitle:@"确定" otherButtonTitles:nil
+//                         , nil];
+//        [alert show];
+    }
     
 //    int hilighted ;
 //    if (num == self.labelArray.count) {
@@ -416,6 +433,7 @@ CGPoint point = [gestureRecognizer locationInView:self.collectionView];
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
 {
     [self letViewsHilighted];
+    
     HHBombItem *item = self.bombPositionArray[indexPath.section][indexPath.item];
     if (item.haveBeenDetect) {
         if (item.haveBomb) {
@@ -434,7 +452,9 @@ CGPoint point = [gestureRecognizer locationInView:self.collectionView];
     if (item.haveBomb) {
         if (_numOfPlayers>0) {
             [self letViewsCntPlus];
+            [(AppDelegate *)[[UIApplication sharedApplication] delegate] playAudio:0];
             _stepCNT++;
+            
         }
 
         [_timer invalidate];
@@ -481,4 +501,15 @@ CGPoint point = [gestureRecognizer locationInView:self.collectionView];
     _timer=[NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(changeLable) userInfo:nil repeats:YES];
     [_timer fire];
 }
+
+-(void) playSound
+
+{
+    AVAudioPlayer *player = [[AVAudioPlayer alloc] initWithContentsOfURL:[NSURL fileURLWithPath:[[NSBundle mainBundle] pathForResource:@"mineClicked" ofType:@"wav"]] error:nil];//
+    player.volume =0.8;//0.0-1.0之间
+    [player prepareToPlay];//分配播放所需的资源，并将其加入内部播放队列
+    [player play];
+}
+
+
 @end
