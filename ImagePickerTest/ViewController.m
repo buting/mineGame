@@ -321,7 +321,6 @@ CGPoint point = [gestureRecognizer locationInView:self.collectionView];
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
-//    [self showImagePicker:UIImagePickerControllerSourceTypeCamera allowsEditing:YES];
 }
 
 - (IBAction)didTapRestartButton:(id)sender {
