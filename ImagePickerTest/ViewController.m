@@ -40,11 +40,6 @@ static SystemSoundID soundplay_background = 0;
 @property (weak, nonatomic) IBOutlet UITextField *textField;
 @property (weak, nonatomic) IBOutlet UITextField *TFSetNumOfPlayers;
 @property (strong, nonatomic) IBOutlet UISlider *slider;
-//@property (weak, nonatomic) IBOutlet UITextField *TFOfPlayers;
-//@property (nonatomic, assign) int cntOFPlayers;
-
-
-
 @property (nonatomic, strong) NSMutableArray *bombPositionArray;
 @property (nonatomic, assign) int bombCountSetted;
 @property (nonatomic, assign) int countOfMarkedFlags;
@@ -54,10 +49,7 @@ static SystemSoundID soundplay_background = 0;
 @property (nonatomic, assign) int stepCNT;
 @property (nonatomic,strong)  NSMutableArray *labelArray;
 @property (nonatomic, assign) BOOL isFirstBoom; //首雷X2
-
-
 @property (nonatomic, assign) CGFloat itemWidth;
-
 
 @property (nonatomic, strong) NSTimer *timer;
 
@@ -74,25 +66,20 @@ static SystemSoundID soundplay_background = 0;
     [super viewDidLoad];
     
     [[NSUserDefaults standardUserDefaults] setObject:@"YES" forKey:@"CFG_SOUND_ON"];
-
-    
-//    [self testTingTong];
-    // Do any additional setup after loading the view, typically from a nib.
     self.bombCountSetted = 40;
     rowCount = 10;
     [self initData];
     [self addGesture];
     [self setViewsForCountNumberOfPlayers:_numOfPlayers];
     self.textField.userInteractionEnabled=NO;
-//    [[UIApplication sharedApplication] setIdleTimerDisabled:YES]; //不息屏
-    
-    
+    [[UIApplication sharedApplication] setIdleTimerDisabled:YES]; //不息屏
 }
--(void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event{
+
+- (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event{
     [_TFSetNumOfPlayers resignFirstResponder];
-//    self.
 }
--(void)setViewsForCountNumberOfPlayers:(int) numbers{
+
+- (void)setViewsForCountNumberOfPlayers:(int) numbers{
     if (numbers) {
         self.labelArray=[[NSMutableArray alloc] init];
         for (int i=0; i<numbers; i++) {
@@ -110,8 +97,9 @@ static SystemSoundID soundplay_background = 0;
     NSLog(@"%lu",(unsigned long)[self.view.subviews count]);
     NSLog(@"%lu",(unsigned long)[self.labelArray count]);
 
+
 }
--(void)letViewsCntPlus{
+- (void)letViewsCntPlus{
     
     int num=_stepCNT%_numOfPlayers;
     UILabel  *  lable  =[self.labelArray objectAtIndex:num];
@@ -125,25 +113,14 @@ static SystemSoundID soundplay_background = 0;
     lable.textColor=[UIColor blackColor];
 
 }
--(void)letViewsHilighted{
+- (void)letViewsHilighted{
     int num;
     if (_numOfPlayers) {
      num  = _stepCNT%_numOfPlayers;
     } else{
         num = 0;
-//    UIAlertView *alert =[[UIAlertView alloc] initWithTitle:@"提示" message:@"请设置人数" delegate:nil cancelButtonTitle:@"确定" otherButtonTitles:nil
-//                         , nil];
-//        [alert show];
-    }
-    
-//    int hilighted ;
-//    if (num == self.labelArray.count) {
-//        hilighted = 0;
-//    } else {
-//        hilighted = num +1;
-//    }
 
-//    
+    }
     for ( int i =0 ; i<self.labelArray.count; i++) {
         
         if (i==num) {
@@ -203,6 +180,7 @@ static SystemSoundID soundplay_background = 0;
         }
     }
 }
+
 - (void)addGesture
 {
     UILongPressGestureRecognizer *lpgr = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(handleLongPress:)];
@@ -382,6 +360,7 @@ CGPoint point = [gestureRecognizer locationInView:self.collectionView];
     // Dispose of any resources that can be recreated.
 }
 
+
 - (void)showImagePicker:(UIImagePickerControllerSourceType)sourceType allowsEditing:(BOOL)allowsEditing
 {
     UIImagePickerController *picker = [[UIImagePickerController alloc] init];
@@ -491,6 +470,8 @@ CGPoint point = [gestureRecognizer locationInView:self.collectionView];
     _timeLabel.text=[NSString stringWithFormat:@"%d秒",x];
     _totalTime--;
 }
+
+
 - (IBAction)startCountTime:(id)sender {
     if (_timer) {
         [_timer invalidate];
