@@ -58,7 +58,7 @@
 		D0C9C54C1C3BA9210087D987 /* HHCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HHCollectionViewCell.m; sourceTree = "<group>"; };
 		D0C9C54E1C3BAB780087D987 /* HHBombItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HHBombItem.h; sourceTree = "<group>"; };
 		D0C9C54F1C3BAB780087D987 /* HHBombItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HHBombItem.m; sourceTree = "<group>"; };
-		D0D716E01C1AA8EB0086E813 /* ImagePickerTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ImagePickerTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		D0D716E01C1AA8EB0086E813 /* MineGame.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MineGame.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D0D716E41C1AA8EB0086E813 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		D0D716E61C1AA8EB0086E813 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		D0D716E71C1AA8EB0086E813 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -68,10 +68,10 @@
 		D0D716EF1C1AA8EB0086E813 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D0D716F21C1AA8EB0086E813 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D0D716F41C1AA8EB0086E813 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		D0D716F91C1AA8EB0086E813 /* ImagePickerTestTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ImagePickerTestTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		D0D716F91C1AA8EB0086E813 /* MineGame.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MineGame.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		D0D716FD1C1AA8EB0086E813 /* ImagePickerTestTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ImagePickerTestTests.m; sourceTree = "<group>"; };
 		D0D716FF1C1AA8EB0086E813 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		D0D717041C1AA8EB0086E813 /* ImagePickerTestUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ImagePickerTestUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		D0D717041C1AA8EB0086E813 /* MineGame.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MineGame.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		D0D717081C1AA8EB0086E813 /* ImagePickerTestUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ImagePickerTestUITests.m; sourceTree = "<group>"; };
 		D0D7170A1C1AA8EB0086E813 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -109,35 +109,32 @@
 			path = audioResource;
 			sourceTree = "<group>";
 		};
-		D0D716D71C1AA8EA0086E813 = {
+		63FE10AF1CBED574002EE082 /* picResource */ = {
 			isa = PBXGroup;
 			children = (
-				D0D716E21C1AA8EB0086E813 /* ImagePickerTest */,
-				D0D716FC1C1AA8EB0086E813 /* ImagePickerTestTests */,
-				D0D717071C1AA8EB0086E813 /*   */,
-				D0D716E11C1AA8EB0086E813 /* Products */,
-			);
-			sourceTree = "<group>";
-		};
-		D0D716E11C1AA8EB0086E813 /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				D0D716E01C1AA8EB0086E813 /* ImagePickerTest.app */,
-				D0D716F91C1AA8EB0086E813 /* ImagePickerTestTests.xctest */,
-				D0D717041C1AA8EB0086E813 /* ImagePickerTestUITests.xctest */,
-			);
-			name = Products;
-			sourceTree = "<group>";
-		};
-		D0D716E21C1AA8EB0086E813 /* ImagePickerTest */ = {
-			isa = PBXGroup;
-			children = (
-				63DB84601CACCFC30079E0B5 /* AppDelegate+Audio.h */,
-				63DB84611CACCFC30079E0B5 /* AppDelegate+Audio.m */,
 				630679541C96BC4300BD8163 /* mineSmileFace@2x.png */,
 				630679521C96BC3900BD8163 /* mineCryFace@2x.png */,
 				630679501C96BC3300BD8163 /* mineButtonBorder@2x.png */,
 				6306794E1C96BC2500BD8163 /* flag@2x.png */,
+				D0C9C5491C3BA8F90087D987 /* bomb@2x.jpg */,
+			);
+			name = picResource;
+			sourceTree = "<group>";
+		};
+		63FE10B01CBED588002EE082 /* Resouces */ = {
+			isa = PBXGroup;
+			children = (
+				D0D716E31C1AA8EB0086E813 /* Supporting Files */,
+			);
+			name = Resouces;
+			sourceTree = "<group>";
+		};
+		63FE10B11CBED5F9002EE082 /* codeFile */ = {
+			isa = PBXGroup;
+			children = (
+				D0D716E41C1AA8EB0086E813 /* main.m */,
+				63DB84601CACCFC30079E0B5 /* AppDelegate+Audio.h */,
+				63DB84611CACCFC30079E0B5 /* AppDelegate+Audio.m */,
 				D0D716E61C1AA8EB0086E813 /* AppDelegate.h */,
 				D0D716E71C1AA8EB0086E813 /* AppDelegate.m */,
 				D0D716E91C1AA8EB0086E813 /* ViewController.h */,
@@ -147,50 +144,79 @@
 				D0C9C54C1C3BA9210087D987 /* HHCollectionViewCell.m */,
 				D0C9C54E1C3BAB780087D987 /* HHBombItem.h */,
 				D0C9C54F1C3BAB780087D987 /* HHBombItem.m */,
-				D0C9C5491C3BA8F90087D987 /* bomb@2x.jpg */,
 				D0D716EC1C1AA8EB0086E813 /* Main.storyboard */,
 				D0D716EF1C1AA8EB0086E813 /* Assets.xcassets */,
 				D0D716F11C1AA8EB0086E813 /* LaunchScreen.storyboard */,
 				D0D716F41C1AA8EB0086E813 /* Info.plist */,
-				D0D716E31C1AA8EB0086E813 /* Supporting Files */,
 			);
+			name = codeFile;
+			sourceTree = "<group>";
+		};
+		D0D716D71C1AA8EA0086E813 = {
+			isa = PBXGroup;
+			children = (
+				D0D716E21C1AA8EB0086E813 /* allCodeFiles */,
+				D0D716FC1C1AA8EB0086E813 /* MineGameTests */,
+				D0D717071C1AA8EB0086E813 /* useless */,
+				D0D716E11C1AA8EB0086E813 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		D0D716E11C1AA8EB0086E813 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				D0D716E01C1AA8EB0086E813 /* MineGame.app */,
+				D0D716F91C1AA8EB0086E813 /* MineGame.xctest */,
+				D0D717041C1AA8EB0086E813 /* MineGame.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		D0D716E21C1AA8EB0086E813 /* allCodeFiles */ = {
+			isa = PBXGroup;
+			children = (
+				63FE10B11CBED5F9002EE082 /* codeFile */,
+				63FE10B01CBED588002EE082 /* Resouces */,
+			);
+			name = allCodeFiles;
 			path = ImagePickerTest;
 			sourceTree = "<group>";
 		};
 		D0D716E31C1AA8EB0086E813 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				63FE10AF1CBED574002EE082 /* picResource */,
 				630CE3F21CABDAF900D2906A /* audioResource */,
-				D0D716E41C1AA8EB0086E813 /* main.m */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		D0D716FC1C1AA8EB0086E813 /* ImagePickerTestTests */ = {
+		D0D716FC1C1AA8EB0086E813 /* MineGameTests */ = {
 			isa = PBXGroup;
 			children = (
 				D0D716FD1C1AA8EB0086E813 /* ImagePickerTestTests.m */,
 				D0D716FF1C1AA8EB0086E813 /* Info.plist */,
 			);
+			name = MineGameTests;
 			path = ImagePickerTestTests;
 			sourceTree = "<group>";
 		};
-		D0D717071C1AA8EB0086E813 /*   */ = {
+		D0D717071C1AA8EB0086E813 /* useless */ = {
 			isa = PBXGroup;
 			children = (
 				D0D717081C1AA8EB0086E813 /* ImagePickerTestUITests.m */,
 				D0D7170A1C1AA8EB0086E813 /* Info.plist */,
 			);
-			name = " ";
+			name = useless;
 			path = ImagePickerTestUITests;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		D0D716DF1C1AA8EB0086E813 /* ImagePickerTest */ = {
+		D0D716DF1C1AA8EB0086E813 /* MineGame */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = D0D7170D1C1AA8EB0086E813 /* Build configuration list for PBXNativeTarget "ImagePickerTest" */;
+			buildConfigurationList = D0D7170D1C1AA8EB0086E813 /* Build configuration list for PBXNativeTarget "MineGame" */;
 			buildPhases = (
 				D0D716DC1C1AA8EB0086E813 /* Sources */,
 				D0D716DD1C1AA8EB0086E813 /* Frameworks */,
@@ -200,14 +226,14 @@
 			);
 			dependencies = (
 			);
-			name = ImagePickerTest;
+			name = MineGame;
 			productName = ImagePickerTest;
-			productReference = D0D716E01C1AA8EB0086E813 /* ImagePickerTest.app */;
+			productReference = D0D716E01C1AA8EB0086E813 /* MineGame.app */;
 			productType = "com.apple.product-type.application";
 		};
-		D0D716F81C1AA8EB0086E813 /* ImagePickerTestTests */ = {
+		D0D716F81C1AA8EB0086E813 /* MineGameTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = D0D717101C1AA8EB0086E813 /* Build configuration list for PBXNativeTarget "ImagePickerTestTests" */;
+			buildConfigurationList = D0D717101C1AA8EB0086E813 /* Build configuration list for PBXNativeTarget "MineGameTests" */;
 			buildPhases = (
 				D0D716F51C1AA8EB0086E813 /* Sources */,
 				D0D716F61C1AA8EB0086E813 /* Frameworks */,
@@ -218,14 +244,14 @@
 			dependencies = (
 				D0D716FB1C1AA8EB0086E813 /* PBXTargetDependency */,
 			);
-			name = ImagePickerTestTests;
+			name = MineGameTests;
 			productName = ImagePickerTestTests;
-			productReference = D0D716F91C1AA8EB0086E813 /* ImagePickerTestTests.xctest */;
+			productReference = D0D716F91C1AA8EB0086E813 /* MineGame.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		D0D717031C1AA8EB0086E813 /* ImagePickerTestUITests */ = {
+		D0D717031C1AA8EB0086E813 /* MineGameUITests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = D0D717131C1AA8EB0086E813 /* Build configuration list for PBXNativeTarget "ImagePickerTestUITests" */;
+			buildConfigurationList = D0D717131C1AA8EB0086E813 /* Build configuration list for PBXNativeTarget "MineGameUITests" */;
 			buildPhases = (
 				D0D717001C1AA8EB0086E813 /* Sources */,
 				D0D717011C1AA8EB0086E813 /* Frameworks */,
@@ -236,9 +262,9 @@
 			dependencies = (
 				D0D717061C1AA8EB0086E813 /* PBXTargetDependency */,
 			);
-			name = ImagePickerTestUITests;
+			name = MineGameUITests;
 			productName = ImagePickerTestUITests;
-			productReference = D0D717041C1AA8EB0086E813 /* ImagePickerTestUITests.xctest */;
+			productReference = D0D717041C1AA8EB0086E813 /* MineGame.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
 /* End PBXNativeTarget section */
@@ -263,7 +289,7 @@
 					};
 				};
 			};
-			buildConfigurationList = D0D716DB1C1AA8EA0086E813 /* Build configuration list for PBXProject "ImagePickerTest" */;
+			buildConfigurationList = D0D716DB1C1AA8EA0086E813 /* Build configuration list for PBXProject "MineGame" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -276,9 +302,9 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				D0D716DF1C1AA8EB0086E813 /* ImagePickerTest */,
-				D0D716F81C1AA8EB0086E813 /* ImagePickerTestTests */,
-				D0D717031C1AA8EB0086E813 /* ImagePickerTestUITests */,
+				D0D716DF1C1AA8EB0086E813 /* MineGame */,
+				D0D716F81C1AA8EB0086E813 /* MineGameTests */,
+				D0D717031C1AA8EB0086E813 /* MineGameUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -352,12 +378,12 @@
 /* Begin PBXTargetDependency section */
 		D0D716FB1C1AA8EB0086E813 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = D0D716DF1C1AA8EB0086E813 /* ImagePickerTest */;
+			target = D0D716DF1C1AA8EB0086E813 /* MineGame */;
 			targetProxy = D0D716FA1C1AA8EB0086E813 /* PBXContainerItemProxy */;
 		};
 		D0D717061C1AA8EB0086E813 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = D0D716DF1C1AA8EB0086E813 /* ImagePickerTest */;
+			target = D0D716DF1C1AA8EB0086E813 /* MineGame */;
 			targetProxy = D0D717051C1AA8EB0086E813 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -473,7 +499,7 @@
 				INFOPLIST_FILE = ImagePickerTest/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = Chaoxinfan.ImagePickerTest;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = MineGame;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
@@ -487,7 +513,7 @@
 				INFOPLIST_FILE = ImagePickerTest/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = Chaoxinfan.ImagePickerTest;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = MineGame;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
@@ -499,8 +525,8 @@
 				INFOPLIST_FILE = ImagePickerTestTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = Chaoxinfan.ImagePickerTestTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ImagePickerTest.app/ImagePickerTest";
+				PRODUCT_NAME = MineGame;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MineGame.app/MineGame";
 			};
 			name = Debug;
 		};
@@ -511,8 +537,8 @@
 				INFOPLIST_FILE = ImagePickerTestTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = Chaoxinfan.ImagePickerTestTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ImagePickerTest.app/ImagePickerTest";
+				PRODUCT_NAME = MineGame;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MineGame.app/MineGame";
 			};
 			name = Release;
 		};
@@ -522,7 +548,7 @@
 				INFOPLIST_FILE = ImagePickerTestUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = Chaoxinfan.ImagePickerTestUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = MineGame;
 				TEST_TARGET_NAME = ImagePickerTest;
 				USES_XCTRUNNER = YES;
 			};
@@ -534,7 +560,7 @@
 				INFOPLIST_FILE = ImagePickerTestUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = Chaoxinfan.ImagePickerTestUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = MineGame;
 				TEST_TARGET_NAME = ImagePickerTest;
 				USES_XCTRUNNER = YES;
 			};
@@ -543,7 +569,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		D0D716DB1C1AA8EA0086E813 /* Build configuration list for PBXProject "ImagePickerTest" */ = {
+		D0D716DB1C1AA8EA0086E813 /* Build configuration list for PBXProject "MineGame" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				D0D7170B1C1AA8EB0086E813 /* Debug */,
@@ -552,7 +578,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		D0D7170D1C1AA8EB0086E813 /* Build configuration list for PBXNativeTarget "ImagePickerTest" */ = {
+		D0D7170D1C1AA8EB0086E813 /* Build configuration list for PBXNativeTarget "MineGame" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				D0D7170E1C1AA8EB0086E813 /* Debug */,
@@ -561,7 +587,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		D0D717101C1AA8EB0086E813 /* Build configuration list for PBXNativeTarget "ImagePickerTestTests" */ = {
+		D0D717101C1AA8EB0086E813 /* Build configuration list for PBXNativeTarget "MineGameTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				D0D717111C1AA8EB0086E813 /* Debug */,
@@ -570,7 +596,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		D0D717131C1AA8EB0086E813 /* Build configuration list for PBXNativeTarget "ImagePickerTestUITests" */ = {
+		D0D717131C1AA8EB0086E813 /* Build configuration list for PBXNativeTarget "MineGameUITests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				D0D717141C1AA8EB0086E813 /* Debug */,
