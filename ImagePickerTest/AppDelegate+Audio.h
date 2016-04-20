@@ -1,10 +1,4 @@
-//
-//  AppDelegate+Audio.h
-//  Undercover
-//
-//  Created by Xtra Chen on 13-10-25.
-//  Copyright (c) 2013年 Xtra. All rights reserved.
-//
+
 
 #import "AppDelegate.h"
 
