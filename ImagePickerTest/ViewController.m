@@ -5,18 +5,7 @@
 //  Created by .Mr.SupEr on 15/12/11.
 //  Copyright © 2015年 .Mr.SupEr. All rights reserved.
 //
-/*是否打印日志的配置*/
-//#define DEBUG_MODE
-#ifdef DEBUG
-#define UCLog(fmt, ...) NSLog((@"%s [Line %d] " fmt), __PRETTY_FUNCTION__, __LINE__, ##__VA_ARGS__);
-#else
-#define UCLog(...)
-#endif
-#define SCREEN_WIDTH    ([[UIScreen mainScreen]bounds].size.width)
-#define SCREEN_HEIGHT    ([[UIScreen mainScreen]bounds].size.height)
 
-
-#define iPhone6Plus ([UIScreen instancesRespondToSelector:@selector(currentMode)] ? CGSizeEqualToSize(CGSizeMake(960, 1704), [[UIScreen mainScreen] currentMode].size) : NO)
 
 
 #import "ViewController.h"
@@ -25,7 +14,21 @@
 #import <AudioToolbox/AudioToolbox.h>
 #import "AppDelegate.h"
 #import "AppDelegate+Audio.h"
-static SystemSoundID soundplay_background = 0;
+#import  "AFNetworking.H"
+
+void testAFNetWorking(void){
+//afnetworking
+    NSURL *URL = [NSURL URLWithString:@"http://bookapi.bignerdranch.com/courses.json"];
+    AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
+    [manager GET:URL.absoluteString parameters:nil progress:nil success:^(NSURLSessionTask *task, id responseObject) {
+        NSLog(@"JSON: %@", responseObject);
+    } failure:^(NSURLSessionTask *operation, NSError *error) {
+        NSLog(@"Error: %@", error);
+    }];
+
+}
+
+//static SystemSoundID soundplay_background = 0;
 
 @import AVFoundation;
 // TODO :增加当前计数的高亮显示
@@ -64,7 +67,8 @@ static SystemSoundID soundplay_background = 0;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
+    testAFNetWorking();
+
     [[NSUserDefaults standardUserDefaults] setObject:@"YES" forKey:@"CFG_SOUND_ON"];
     self.bombCountSetted = 40;
     rowCount = 10;

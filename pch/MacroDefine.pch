@@ -12,4 +12,22 @@
 // Include any system framework and library headers here that should be included in all compilation units.
 // You will also need to set the Prefix Header build setting of one or more of your targets to reference this file.
 
+
+
+
+/*是否打印日志的配置*/
+//#define DEBUG_MODE
+#ifdef DEBUG
+#define UCLog(fmt, ...) NSLog((@"%s [Line %d] " fmt), __PRETTY_FUNCTION__, __LINE__, ##__VA_ARGS__);
+#else
+#define UCLog(...)
+#endif
+#define SCREEN_WIDTH    ([[UIScreen mainScreen]bounds].size.width)
+#define SCREEN_HEIGHT    ([[UIScreen mainScreen]bounds].size.height)
+
+
+#define iPhone6Plus ([UIScreen instancesRespondToSelector:@selector(currentMode)] ? CGSizeEqualToSize(CGSizeMake(960, 1704), [[UIScreen mainScreen] currentMode].size) : NO)
+
+
+
 #endif /* GlobalDefine_pch */
