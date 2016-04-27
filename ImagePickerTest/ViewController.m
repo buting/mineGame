@@ -15,6 +15,7 @@
 #import "AppDelegate.h"
 #import "AppDelegate+Audio.h"
 #import  "AFNetworking.H"
+#import "FMDatabase.h"
 
 void testAFNetWorking(void){
 //afnetworking
@@ -73,10 +74,25 @@ void testAFNetWorking(void){
     self.bombCountSetted = 40;
     rowCount = 10;
     [self initData];
+    [self createDatabase];
     [self addGesture];
     [self setViewsForCountNumberOfPlayers:_numOfPlayers];
     self.textField.userInteractionEnabled=NO;
     [[UIApplication sharedApplication] setIdleTimerDisabled:YES]; //不息屏
+}
+
+- (void)createDatabase{
+    NSArray *docPaths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) ;
+    NSString *docBasePath = docPaths[0];
+    NSString *docFullPath = [docBasePath stringByAppendingString:@"GameRecordDB.db"];
+    FMDatabase *db = [FMDatabase databaseWithPath:docFullPath];
+    if (![db open]) {
+        NSLog(@"could not open gameRecordDB.db ");
+        return;
+    }
+    [db executeUpdate:@"CREATE TABLE GameRecord IF NOT EXISTS(userCount integer , bombCount integer)"];
+    
+
 }
 
 - (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event{
@@ -309,6 +325,9 @@ CGPoint point = [gestureRecognizer locationInView:self.collectionView];
     [_TFSetNumOfPlayers resignFirstResponder];
     _stepCNT=0;
     _numOfPlayers=[self.TFSetNumOfPlayers.text intValue];
+    
+    // 放入数据库
+    
     UCLog(@"%@",self.TFSetNumOfPlayers.text);
     UCLog(@"%d",_numOfPlayers);
     if (self.labelArray.count!=_numOfPlayers) {
@@ -421,7 +440,7 @@ CGPoint point = [gestureRecognizer locationInView:self.collectionView];
         if (item.haveBomb) {
             return;
         } else {
-//            [self showAroundZoneX:(int)indexPath.section Y:(int)(indexPath).item];
+            [self showAroundZoneX:(int)indexPath.section Y:(int)(indexPath).item];
             return;
         }
     }

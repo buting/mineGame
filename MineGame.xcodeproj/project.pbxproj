@@ -13,7 +13,6 @@
 		630679531C96BC3900BD8163 /* mineCryFace@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 630679521C96BC3900BD8163 /* mineCryFace@2x.png */; };
 		630679551C96BC4300BD8163 /* mineSmileFace@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 630679541C96BC4300BD8163 /* mineSmileFace@2x.png */; };
 		630CE3F41CABDAF900D2906A /* mineClicked.wav in Resources */ = {isa = PBXBuildFile; fileRef = 630CE3F31CABDAF900D2906A /* mineClicked.wav */; };
-		63B334811C9BB0B90082A61C /* View.xib in Resources */ = {isa = PBXBuildFile; fileRef = 63B334801C9BB0B90082A61C /* View.xib */; };
 		63DB84621CACCFC30079E0B5 /* AppDelegate+Audio.m in Sources */ = {isa = PBXBuildFile; fileRef = 63DB84611CACCFC30079E0B5 /* AppDelegate+Audio.m */; };
 		63FA7EE31CC9AE3300FDDD05 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 63FA7EDF1CC9AE3300FDDD05 /* Default-568h@2x.png */; };
 		63FA7EE41CC9AE3300FDDD05 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 63FA7EE01CC9AE3300FDDD05 /* Default.png */; };
@@ -57,7 +56,6 @@
 		630679521C96BC3900BD8163 /* mineCryFace@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "mineCryFace@2x.png"; sourceTree = "<group>"; };
 		630679541C96BC4300BD8163 /* mineSmileFace@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "mineSmileFace@2x.png"; sourceTree = "<group>"; };
 		630CE3F31CABDAF900D2906A /* mineClicked.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = mineClicked.wav; sourceTree = "<group>"; };
-		63B334801C9BB0B90082A61C /* View.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = View.xib; sourceTree = "<group>"; };
 		63DB84601CACCFC30079E0B5 /* AppDelegate+Audio.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "AppDelegate+Audio.h"; sourceTree = "<group>"; };
 		63DB84611CACCFC30079E0B5 /* AppDelegate+Audio.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "AppDelegate+Audio.m"; sourceTree = "<group>"; };
 		63FA7EDF1CC9AE3300FDDD05 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
@@ -131,6 +129,60 @@
 			path = audioResource;
 			sourceTree = "<group>";
 		};
+		6358632D1CCDE02A002417BD /* audioLib */ = {
+			isa = PBXGroup;
+			children = (
+				63DB84601CACCFC30079E0B5 /* AppDelegate+Audio.h */,
+				63DB84611CACCFC30079E0B5 /* AppDelegate+Audio.m */,
+			);
+			name = audioLib;
+			sourceTree = "<group>";
+		};
+		6358632E1CCDE0A3002417BD /* MineModel */ = {
+			isa = PBXGroup;
+			children = (
+				D0C9C54E1C3BAB780087D987 /* HHBombItem.h */,
+				D0C9C54F1C3BAB780087D987 /* HHBombItem.m */,
+			);
+			name = MineModel;
+			sourceTree = "<group>";
+		};
+		6358632F1CCDE0C2002417BD /* pch */ = {
+			isa = PBXGroup;
+			children = (
+				63FA7F271CCA1B8700FDDD05 /* MacroDefine.pch */,
+			);
+			name = pch;
+			sourceTree = "<group>";
+		};
+		635863301CCDE0D2002417BD /* MineView */ = {
+			isa = PBXGroup;
+			children = (
+				D0C9C54B1C3BA9210087D987 /* HHCollectionViewCell.h */,
+				D0C9C54C1C3BA9210087D987 /* HHCollectionViewCell.m */,
+			);
+			name = MineView;
+			sourceTree = "<group>";
+		};
+		635863311CCDE0E2002417BD /* MineVC */ = {
+			isa = PBXGroup;
+			children = (
+				D0D716E91C1AA8EB0086E813 /* ViewController.h */,
+				D0D716EA1C1AA8EB0086E813 /* ViewController.m */,
+				D0D716EC1C1AA8EB0086E813 /* Main.storyboard */,
+			);
+			name = MineVC;
+			sourceTree = "<group>";
+		};
+		63875DC71CD095B40053385B /* AppDele */ = {
+			isa = PBXGroup;
+			children = (
+				D0D716E61C1AA8EB0086E813 /* AppDelegate.h */,
+				D0D716E71C1AA8EB0086E813 /* AppDelegate.m */,
+			);
+			name = AppDele;
+			sourceTree = "<group>";
+		};
 		63FE10AF1CBED574002EE082 /* picResource */ = {
 			isa = PBXGroup;
 			children = (
@@ -153,6 +205,9 @@
 				63FE10AF1CBED574002EE082 /* picResource */,
 				630CE3F21CABDAF900D2906A /* audioResource */,
 				D0D716E31C1AA8EB0086E813 /* Supporting Files */,
+				D0D716F11C1AA8EB0086E813 /* LaunchScreen.storyboard */,
+				D0D716F41C1AA8EB0086E813 /* Info.plist */,
+				D0D716EF1C1AA8EB0086E813 /* Assets.xcassets */,
 			);
 			name = Resouces;
 			sourceTree = "<group>";
@@ -160,23 +215,12 @@
 		63FE10B11CBED5F9002EE082 /* codeFile */ = {
 			isa = PBXGroup;
 			children = (
-				63FA7F271CCA1B8700FDDD05 /* MacroDefine.pch */,
-				D0D716E41C1AA8EB0086E813 /* main.m */,
-				63DB84601CACCFC30079E0B5 /* AppDelegate+Audio.h */,
-				63DB84611CACCFC30079E0B5 /* AppDelegate+Audio.m */,
-				D0D716E61C1AA8EB0086E813 /* AppDelegate.h */,
-				D0D716E71C1AA8EB0086E813 /* AppDelegate.m */,
-				D0D716E91C1AA8EB0086E813 /* ViewController.h */,
-				D0D716EA1C1AA8EB0086E813 /* ViewController.m */,
-				63B334801C9BB0B90082A61C /* View.xib */,
-				D0C9C54B1C3BA9210087D987 /* HHCollectionViewCell.h */,
-				D0C9C54C1C3BA9210087D987 /* HHCollectionViewCell.m */,
-				D0C9C54E1C3BAB780087D987 /* HHBombItem.h */,
-				D0C9C54F1C3BAB780087D987 /* HHBombItem.m */,
-				D0D716EC1C1AA8EB0086E813 /* Main.storyboard */,
-				D0D716EF1C1AA8EB0086E813 /* Assets.xcassets */,
-				D0D716F11C1AA8EB0086E813 /* LaunchScreen.storyboard */,
-				D0D716F41C1AA8EB0086E813 /* Info.plist */,
+				6358632F1CCDE0C2002417BD /* pch */,
+				6358632D1CCDE02A002417BD /* audioLib */,
+				6358632E1CCDE0A3002417BD /* MineModel */,
+				635863301CCDE0D2002417BD /* MineView */,
+				635863311CCDE0E2002417BD /* MineVC */,
+				63875DC71CD095B40053385B /* AppDele */,
 			);
 			name = codeFile;
 			sourceTree = "<group>";
@@ -225,6 +269,7 @@
 		D0D716E31C1AA8EB0086E813 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				D0D716E41C1AA8EB0086E813 /* main.m */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -363,7 +408,6 @@
 				6306794F1C96BC2500BD8163 /* flag@2x.png in Resources */,
 				630679551C96BC4300BD8163 /* mineSmileFace@2x.png in Resources */,
 				63FA7EE61CC9AE3300FDDD05 /* icon@2x.png in Resources */,
-				63B334811C9BB0B90082A61C /* View.xib in Resources */,
 				63FA7EE41CC9AE3300FDDD05 /* Default.png in Resources */,
 				D0D716F01C1AA8EB0086E813 /* Assets.xcassets in Resources */,
 				D0D716EE1C1AA8EB0086E813 /* Main.storyboard in Resources */,
