@@ -19,6 +19,7 @@
 
 void testAFNetWorking(void){
 //afnetworking
+    
     NSURL *URL = [NSURL URLWithString:@"http://bookapi.bignerdranch.com/courses.json"];
     AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
     [manager GET:URL.absoluteString parameters:nil progress:nil success:^(NSURLSessionTask *task, id responseObject) {
@@ -44,27 +45,26 @@ void testAFNetWorking(void){
 @property (weak, nonatomic) IBOutlet UITextField *textField;
 @property (weak, nonatomic) IBOutlet UITextField *TFSetNumOfPlayers;
 @property (strong, nonatomic) IBOutlet UISlider *slider;
-@property (nonatomic, strong) NSMutableArray *bombPositionArray;
+
 @property (nonatomic, assign) int bombCountSetted;
 @property (nonatomic, assign) int countOfMarkedFlags;
 @property (nonatomic, assign) int numOfFlagsAroundItem;  //Item附近的旗和炸弹的数量
 @property (nonatomic, assign) int totalTime;  //计时值
 @property (nonatomic, assign) int numOfPlayers;
 @property (nonatomic, assign) int stepCNT;
-@property (nonatomic,strong)  NSMutableArray *labelArray;
 @property (nonatomic, assign) BOOL isFirstBoom; //首雷X2
-@property (nonatomic, assign) CGFloat itemWidth;
 
+@property (nonatomic, strong) NSMutableArray *bombPositionArray;
+@property (nonatomic, strong) NSMutableArray *labelArray;
+@property (nonatomic, assign) CGFloat itemWidth;
 @property (nonatomic, strong) NSTimer *timer;
+@property (nonatomic, strong) FMDatabase *db;
 
 @end
 
 @implementation ViewController
-- (IBAction)passBtnDown:(id)sender {
-    [self letViewsCntPlus];
-    [self letViewsHilighted];
-    self.stepCNT++;
-}
+
+
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -81,17 +81,26 @@ void testAFNetWorking(void){
     [[UIApplication sharedApplication] setIdleTimerDisabled:YES]; //不息屏
 }
 
+#pragma mark - Init
 - (void)createDatabase{
+    
+//    __weak __typeof(self) weaself = self;
+
     NSArray *docPaths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) ;
     NSString *docBasePath = docPaths[0];
-    NSString *docFullPath = [docBasePath stringByAppendingString:@"GameRecordDB.db"];
-    FMDatabase *db = [FMDatabase databaseWithPath:docFullPath];
-    if (![db open]) {
+    NSString *docFullPath = [docBasePath stringByAppendingString:@"/GameRecordDB.sqlite"];
+    _db = [FMDatabase databaseWithPath:docFullPath];
+    if (![_db open]) {
         NSLog(@"could not open gameRecordDB.db ");
         return;
     }
-    [db executeUpdate:@"CREATE TABLE GameRecord IF NOT EXISTS(userCount integer , bombCount integer)"];
+    BOOL result = [_db executeUpdate:@"CREATE TABLE  IF NOT EXISTS GameRecord(userCount integer , bombCount integer)"];
     
+    if (result) {
+        NSLog(@"create table success");
+    } else {
+        NSLog(@"failed create table");
+    }
 
 }
 
@@ -321,15 +330,11 @@ CGPoint point = [gestureRecognizer locationInView:self.collectionView];
     [super viewWillAppear:animated];
 }
 
+#pragma mark - Action
 - (IBAction)didTapRestartButton:(id)sender {
     [_TFSetNumOfPlayers resignFirstResponder];
     _stepCNT=0;
     _numOfPlayers=[self.TFSetNumOfPlayers.text intValue];
-    
-    // 放入数据库
-    
-    UCLog(@"%@",self.TFSetNumOfPlayers.text);
-    UCLog(@"%d",_numOfPlayers);
     if (self.labelArray.count!=_numOfPlayers) {
         for (UILabel *lable in self.labelArray) {
             [lable removeFromSuperview];
@@ -343,24 +348,47 @@ CGPoint point = [gestureRecognizer locationInView:self.collectionView];
         for (UILabel *lable in self.labelArray) {
             lable.text=@"0";
         }
-        }
-        self.textField.text = [NSString stringWithFormat:@"%d",(int)self.slider.value];
-        
-        //    }
-        self.bombCountSetted = self.textField.text.intValue;
-        UCLog(@"%d",self.textField.text.intValue);
+    }
+    self.textField.text = [NSString stringWithFormat:@"%d",(int)self.slider.value];
+    
+    //    }
+    self.bombCountSetted = self.textField.text.intValue;
+    UCLog(@"%d",self.textField.text.intValue);
     self.countOfMarkedFlags = 0;
     self.bombCountSetted = MAX(self.bombCountSetted,20);
     [self.textField resignFirstResponder];
     [self initData];
     [self.timer invalidate];
-
+    
+    [self addToDB];
+    
+    
     self.timer=nil;
     _totalTime=60;
     _timeLabel.text=[NSString stringWithFormat:@"倒计时60秒"];
     [self startCountTime:nil];
  
     [self.collectionView reloadData];
+}
+
+- (void)addToDB{
+    // 放入数据库 @"INSERT INTO PersonList (Name, Age, Sex, Phone, Address, Photo) VALUES (?,?,?,?,?,?)"
+
+    [_db executeUpdate:@"INSERT INTO GameRecord (userCount, bombCount) VALUES (?,?)",[NSNumber numberWithInt:_numOfPlayers],[NSNumber numberWithInt:self.bombCountSetted]];
+    
+    FMResultSet *rs = [_db executeQuery:@"SELECT * FROM GameRecord"];
+    
+    while ([rs next]) {
+        int   count = [rs intForColumn:@"userCount"];
+        NSLog(@"%d",count);
+    }
+
+
+}
+- (IBAction)passBtnDown:(id)sender {
+    [self letViewsCntPlus];
+    [self letViewsHilighted];
+    self.stepCNT++;
 }
 
 - (IBAction)sliderChange:(UISlider *)sender {
