@@ -13,6 +13,14 @@
 		630679531C96BC3900BD8163 /* mineCryFace@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 630679521C96BC3900BD8163 /* mineCryFace@2x.png */; };
 		630679551C96BC4300BD8163 /* mineSmileFace@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 630679541C96BC4300BD8163 /* mineSmileFace@2x.png */; };
 		630CE3F41CABDAF900D2906A /* mineClicked.wav in Resources */ = {isa = PBXBuildFile; fileRef = 630CE3F31CABDAF900D2906A /* mineClicked.wav */; };
+		638782291CD2576300943629 /* CYLTabBarControllerConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = 638782281CD2576300943629 /* CYLTabBarControllerConfig.m */; };
+		63A8042F1CD25977001B23C1 /* CYLHomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 63A804201CD25977001B23C1 /* CYLHomeViewController.m */; };
+		63A804301CD25977001B23C1 /* CYLMessageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 63A804231CD25977001B23C1 /* CYLMessageViewController.m */; };
+		63A804311CD25977001B23C1 /* CYLMineViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 63A804261CD25977001B23C1 /* CYLMineViewController.m */; };
+		63A804321CD25977001B23C1 /* CYLDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 63A804291CD25977001B23C1 /* CYLDetailsViewController.m */; };
+		63A804331CD25977001B23C1 /* CYLSameCityViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 63A8042B1CD25977001B23C1 /* CYLSameCityViewController.m */; };
+		63A804341CD25977001B23C1 /* CYLPlusButtonSubclass.m in Sources */ = {isa = PBXBuildFile; fileRef = 63A8042E1CD25977001B23C1 /* CYLPlusButtonSubclass.m */; };
+		63A804DD1CD25DD8001B23C1 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 63A804DC1CD25DD8001B23C1 /* Images.xcassets */; };
 		63DB84621CACCFC30079E0B5 /* AppDelegate+Audio.m in Sources */ = {isa = PBXBuildFile; fileRef = 63DB84611CACCFC30079E0B5 /* AppDelegate+Audio.m */; };
 		63FA7EE31CC9AE3300FDDD05 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 63FA7EDF1CC9AE3300FDDD05 /* Default-568h@2x.png */; };
 		63FA7EE41CC9AE3300FDDD05 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 63FA7EE01CC9AE3300FDDD05 /* Default.png */; };
@@ -56,6 +64,21 @@
 		630679521C96BC3900BD8163 /* mineCryFace@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "mineCryFace@2x.png"; sourceTree = "<group>"; };
 		630679541C96BC4300BD8163 /* mineSmileFace@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "mineSmileFace@2x.png"; sourceTree = "<group>"; };
 		630CE3F31CABDAF900D2906A /* mineClicked.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = mineClicked.wav; sourceTree = "<group>"; };
+		638782271CD2576300943629 /* CYLTabBarControllerConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CYLTabBarControllerConfig.h; path = TabBarConfig/CYLTabBarControllerConfig.h; sourceTree = "<group>"; };
+		638782281CD2576300943629 /* CYLTabBarControllerConfig.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CYLTabBarControllerConfig.m; path = TabBarConfig/CYLTabBarControllerConfig.m; sourceTree = "<group>"; };
+		63A8041F1CD25977001B23C1 /* CYLHomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CYLHomeViewController.h; sourceTree = "<group>"; };
+		63A804201CD25977001B23C1 /* CYLHomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CYLHomeViewController.m; sourceTree = "<group>"; };
+		63A804221CD25977001B23C1 /* CYLMessageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CYLMessageViewController.h; sourceTree = "<group>"; };
+		63A804231CD25977001B23C1 /* CYLMessageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CYLMessageViewController.m; sourceTree = "<group>"; };
+		63A804251CD25977001B23C1 /* CYLMineViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CYLMineViewController.h; sourceTree = "<group>"; };
+		63A804261CD25977001B23C1 /* CYLMineViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CYLMineViewController.m; sourceTree = "<group>"; };
+		63A804281CD25977001B23C1 /* CYLDetailsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CYLDetailsViewController.h; sourceTree = "<group>"; };
+		63A804291CD25977001B23C1 /* CYLDetailsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CYLDetailsViewController.m; sourceTree = "<group>"; };
+		63A8042A1CD25977001B23C1 /* CYLSameCityViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CYLSameCityViewController.h; sourceTree = "<group>"; };
+		63A8042B1CD25977001B23C1 /* CYLSameCityViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CYLSameCityViewController.m; sourceTree = "<group>"; };
+		63A8042D1CD25977001B23C1 /* CYLPlusButtonSubclass.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CYLPlusButtonSubclass.h; sourceTree = "<group>"; };
+		63A8042E1CD25977001B23C1 /* CYLPlusButtonSubclass.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CYLPlusButtonSubclass.m; sourceTree = "<group>"; };
+		63A804DC1CD25DD8001B23C1 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		63DB84601CACCFC30079E0B5 /* AppDelegate+Audio.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "AppDelegate+Audio.h"; sourceTree = "<group>"; };
 		63DB84611CACCFC30079E0B5 /* AppDelegate+Audio.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "AppDelegate+Audio.m"; sourceTree = "<group>"; };
 		63FA7EDF1CC9AE3300FDDD05 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
@@ -177,10 +200,80 @@
 		63875DC71CD095B40053385B /* AppDele */ = {
 			isa = PBXGroup;
 			children = (
+				638782271CD2576300943629 /* CYLTabBarControllerConfig.h */,
+				638782281CD2576300943629 /* CYLTabBarControllerConfig.m */,
 				D0D716E61C1AA8EB0086E813 /* AppDelegate.h */,
 				D0D716E71C1AA8EB0086E813 /* AppDelegate.m */,
 			);
 			name = AppDele;
+			sourceTree = "<group>";
+		};
+		63A8041C1CD25977001B23C1 /* CYLTabBarClasses */ = {
+			isa = PBXGroup;
+			children = (
+				63A8041D1CD25977001B23C1 /* Module */,
+				63A8042C1CD25977001B23C1 /* View */,
+			);
+			name = CYLTabBarClasses;
+			path = ImagePickerTest/Classes;
+			sourceTree = "<group>";
+		};
+		63A8041D1CD25977001B23C1 /* Module */ = {
+			isa = PBXGroup;
+			children = (
+				63A8041E1CD25977001B23C1 /* Home */,
+				63A804211CD25977001B23C1 /* Message */,
+				63A804241CD25977001B23C1 /* Mine */,
+				63A804271CD25977001B23C1 /* SameCity */,
+			);
+			path = Module;
+			sourceTree = "<group>";
+		};
+		63A8041E1CD25977001B23C1 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				63A8041F1CD25977001B23C1 /* CYLHomeViewController.h */,
+				63A804201CD25977001B23C1 /* CYLHomeViewController.m */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		63A804211CD25977001B23C1 /* Message */ = {
+			isa = PBXGroup;
+			children = (
+				63A804221CD25977001B23C1 /* CYLMessageViewController.h */,
+				63A804231CD25977001B23C1 /* CYLMessageViewController.m */,
+			);
+			path = Message;
+			sourceTree = "<group>";
+		};
+		63A804241CD25977001B23C1 /* Mine */ = {
+			isa = PBXGroup;
+			children = (
+				63A804251CD25977001B23C1 /* CYLMineViewController.h */,
+				63A804261CD25977001B23C1 /* CYLMineViewController.m */,
+			);
+			path = Mine;
+			sourceTree = "<group>";
+		};
+		63A804271CD25977001B23C1 /* SameCity */ = {
+			isa = PBXGroup;
+			children = (
+				63A804281CD25977001B23C1 /* CYLDetailsViewController.h */,
+				63A804291CD25977001B23C1 /* CYLDetailsViewController.m */,
+				63A8042A1CD25977001B23C1 /* CYLSameCityViewController.h */,
+				63A8042B1CD25977001B23C1 /* CYLSameCityViewController.m */,
+			);
+			path = SameCity;
+			sourceTree = "<group>";
+		};
+		63A8042C1CD25977001B23C1 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				63A8042D1CD25977001B23C1 /* CYLPlusButtonSubclass.h */,
+				63A8042E1CD25977001B23C1 /* CYLPlusButtonSubclass.m */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 		63FE10AF1CBED574002EE082 /* picResource */ = {
@@ -202,6 +295,7 @@
 		63FE10B01CBED588002EE082 /* Resouces */ = {
 			isa = PBXGroup;
 			children = (
+				63A804DC1CD25DD8001B23C1 /* Images.xcassets */,
 				63FE10AF1CBED574002EE082 /* picResource */,
 				630CE3F21CABDAF900D2906A /* audioResource */,
 				D0D716E31C1AA8EB0086E813 /* Supporting Files */,
@@ -210,6 +304,7 @@
 				D0D716EF1C1AA8EB0086E813 /* Assets.xcassets */,
 			);
 			name = Resouces;
+			path = ImagePickerTest;
 			sourceTree = "<group>";
 		};
 		63FE10B11CBED5F9002EE082 /* codeFile */ = {
@@ -237,8 +332,9 @@
 		D0D716D71C1AA8EA0086E813 = {
 			isa = PBXGroup;
 			children = (
+				63A8041C1CD25977001B23C1 /* CYLTabBarClasses */,
+				63FE10B01CBED588002EE082 /* Resouces */,
 				D0D716E21C1AA8EB0086E813 /* allCodeFiles */,
-				D0D716FC1C1AA8EB0086E813 /* MineGameTests */,
 				D0D717071C1AA8EB0086E813 /* useless */,
 				D0D716E11C1AA8EB0086E813 /* Products */,
 				9BCC7A09A4A6EE6A1CD9BF35 /* Pods */,
@@ -260,7 +356,6 @@
 			isa = PBXGroup;
 			children = (
 				63FE10B11CBED5F9002EE082 /* codeFile */,
-				63FE10B01CBED588002EE082 /* Resouces */,
 			);
 			name = allCodeFiles;
 			path = ImagePickerTest;
@@ -281,12 +376,13 @@
 				D0D716FF1C1AA8EB0086E813 /* Info.plist */,
 			);
 			name = MineGameTests;
-			path = ImagePickerTestTests;
+			path = ../ImagePickerTestTests;
 			sourceTree = "<group>";
 		};
 		D0D717071C1AA8EB0086E813 /* useless */ = {
 			isa = PBXGroup;
 			children = (
+				D0D716FC1C1AA8EB0086E813 /* MineGameTests */,
 				D0D717081C1AA8EB0086E813 /* ImagePickerTestUITests.m */,
 				D0D7170A1C1AA8EB0086E813 /* Info.plist */,
 			);
@@ -409,6 +505,7 @@
 				630679551C96BC4300BD8163 /* mineSmileFace@2x.png in Resources */,
 				63FA7EE61CC9AE3300FDDD05 /* icon@2x.png in Resources */,
 				63FA7EE41CC9AE3300FDDD05 /* Default.png in Resources */,
+				63A804DD1CD25DD8001B23C1 /* Images.xcassets in Resources */,
 				D0D716F01C1AA8EB0086E813 /* Assets.xcassets in Resources */,
 				D0D716EE1C1AA8EB0086E813 /* Main.storyboard in Resources */,
 				630679531C96BC3900BD8163 /* mineCryFace@2x.png in Resources */,
@@ -485,9 +582,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				63A804301CD25977001B23C1 /* CYLMessageViewController.m in Sources */,
+				638782291CD2576300943629 /* CYLTabBarControllerConfig.m in Sources */,
+				63A804321CD25977001B23C1 /* CYLDetailsViewController.m in Sources */,
 				D0C9C54D1C3BA9210087D987 /* HHCollectionViewCell.m in Sources */,
+				63A804341CD25977001B23C1 /* CYLPlusButtonSubclass.m in Sources */,
+				63A804331CD25977001B23C1 /* CYLSameCityViewController.m in Sources */,
+				63A8042F1CD25977001B23C1 /* CYLHomeViewController.m in Sources */,
 				D0C9C5501C3BAB780087D987 /* HHBombItem.m in Sources */,
 				63DB84621CACCFC30079E0B5 /* AppDelegate+Audio.m in Sources */,
+				63A804311CD25977001B23C1 /* CYLMineViewController.m in Sources */,
 				D0D716EB1C1AA8EB0086E813 /* ViewController.m in Sources */,
 				D0D716E81C1AA8EB0086E813 /* AppDelegate.m in Sources */,
 				D0D716E51C1AA8EB0086E813 /* main.m in Sources */,

@@ -28,6 +28,7 @@
 #import "CYLMineViewController.h"
 #import "CYLSameCityViewController.h"
 
+#import "ViewController.h"
 @interface CYLTabBarControllerConfig ()
 
 @property (nonatomic, readwrite, strong) CYLTabBarController *tabBarController;
@@ -44,8 +45,12 @@
 - (CYLTabBarController *)tabBarController {
     if (_tabBarController == nil) {
         CYLHomeViewController *firstViewController = [[CYLHomeViewController alloc] init];
+        
+        UIStoryboard *sb = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+        ViewController *vc = [sb instantiateViewControllerWithIdentifier:@"VC"];
+        
         UIViewController *firstNavigationController = [[CYLBaseNavigationController alloc]
-                                                       initWithRootViewController:firstViewController];
+                                                       initWithRootViewController:vc];
         
         CYLSameCityViewController *secondViewController = [[CYLSameCityViewController alloc] init];
         UIViewController *secondNavigationController = [[CYLBaseNavigationController alloc]
