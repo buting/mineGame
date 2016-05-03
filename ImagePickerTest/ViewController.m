@@ -16,7 +16,7 @@
 #import "AppDelegate+Audio.h"
 #import  "AFNetworking.H"
 #import "FMDatabase.h"
-
+#import "HYBNetworking.h"
 void testAFNetWorking(void){
 //afnetworking
     
@@ -68,7 +68,7 @@ void testAFNetWorking(void){
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    testAFNetWorking();
+//    testAFNetWorking();
 //
     [[NSUserDefaults standardUserDefaults] setObject:@"YES" forKey:@"CFG_SOUND_ON"];
     self.bombCountSetted = 40;
@@ -79,8 +79,25 @@ void testAFNetWorking(void){
     [self setViewsForCountNumberOfPlayers:_numOfPlayers];
     self.textField.userInteractionEnabled=NO;
     [[UIApplication sharedApplication] setIdleTimerDisabled:YES]; //不息屏
+    
+    [self setBaseURL];
+    [self testHYBNetWorking];
 }
 
+- (void)testHYBNetWorking
+{
+    [HYBNetworking getWithUrl:@"courses.json" refreshCache:YES success:^(id response) {
+        UCLog(@" %@",response);
+    } fail:^(NSError *error) {
+        UCLog(@"%@",error);
+    }];
+
+}
+
+- (void)setBaseURL
+{
+    [HYBNetworking updateBaseUrl:@"http://bookapi.bignerdranch.com"];
+}
 #pragma mark - Init
 - (void)createDatabase{
     
