@@ -69,7 +69,7 @@ void testAFNetWorking(void){
 - (void)viewDidLoad {
     [super viewDidLoad];
     testAFNetWorking();
-
+//
     [[NSUserDefaults standardUserDefaults] setObject:@"YES" forKey:@"CFG_SOUND_ON"];
     self.bombCountSetted = 40;
     rowCount = 10;
