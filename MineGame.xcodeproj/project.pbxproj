@@ -21,6 +21,7 @@
 		63A804331CD25977001B23C1 /* CYLSameCityViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 63A8042B1CD25977001B23C1 /* CYLSameCityViewController.m */; };
 		63A804341CD25977001B23C1 /* CYLPlusButtonSubclass.m in Sources */ = {isa = PBXBuildFile; fileRef = 63A8042E1CD25977001B23C1 /* CYLPlusButtonSubclass.m */; };
 		63A804DD1CD25DD8001B23C1 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 63A804DC1CD25DD8001B23C1 /* Images.xcassets */; };
+		63CB96091CD9CBB1002D4994 /* DBManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 63CB96081CD9CBB1002D4994 /* DBManager.m */; };
 		63DB84621CACCFC30079E0B5 /* AppDelegate+Audio.m in Sources */ = {isa = PBXBuildFile; fileRef = 63DB84611CACCFC30079E0B5 /* AppDelegate+Audio.m */; };
 		63FA7EE31CC9AE3300FDDD05 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 63FA7EDF1CC9AE3300FDDD05 /* Default-568h@2x.png */; };
 		63FA7EE41CC9AE3300FDDD05 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 63FA7EE01CC9AE3300FDDD05 /* Default.png */; };
@@ -79,6 +80,8 @@
 		63A8042D1CD25977001B23C1 /* CYLPlusButtonSubclass.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CYLPlusButtonSubclass.h; sourceTree = "<group>"; };
 		63A8042E1CD25977001B23C1 /* CYLPlusButtonSubclass.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CYLPlusButtonSubclass.m; sourceTree = "<group>"; };
 		63A804DC1CD25DD8001B23C1 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		63CB96071CD9CBB1002D4994 /* DBManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DBManager.h; sourceTree = "<group>"; };
+		63CB96081CD9CBB1002D4994 /* DBManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DBManager.m; sourceTree = "<group>"; };
 		63DB84601CACCFC30079E0B5 /* AppDelegate+Audio.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "AppDelegate+Audio.h"; sourceTree = "<group>"; };
 		63DB84611CACCFC30079E0B5 /* AppDelegate+Audio.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "AppDelegate+Audio.m"; sourceTree = "<group>"; };
 		63FA7EDF1CC9AE3300FDDD05 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
@@ -187,14 +190,14 @@
 			name = MineView;
 			sourceTree = "<group>";
 		};
-		635863311CCDE0E2002417BD /* MineVC */ = {
+		635863311CCDE0E2002417BD /* MainViewController */ = {
 			isa = PBXGroup;
 			children = (
 				D0D716E91C1AA8EB0086E813 /* ViewController.h */,
 				D0D716EA1C1AA8EB0086E813 /* ViewController.m */,
 				D0D716EC1C1AA8EB0086E813 /* Main.storyboard */,
 			);
-			name = MineVC;
+			name = MainViewController;
 			sourceTree = "<group>";
 		};
 		63875DC71CD095B40053385B /* AppDele */ = {
@@ -276,6 +279,15 @@
 			path = View;
 			sourceTree = "<group>";
 		};
+		63CB96061CD9CB4C002D4994 /* manager */ = {
+			isa = PBXGroup;
+			children = (
+				63CB96071CD9CBB1002D4994 /* DBManager.h */,
+				63CB96081CD9CBB1002D4994 /* DBManager.m */,
+			);
+			name = manager;
+			sourceTree = "<group>";
+		};
 		63FE10AF1CBED574002EE082 /* picResource */ = {
 			isa = PBXGroup;
 			children = (
@@ -310,11 +322,12 @@
 		63FE10B11CBED5F9002EE082 /* codeFile */ = {
 			isa = PBXGroup;
 			children = (
+				63CB96061CD9CB4C002D4994 /* manager */,
 				6358632F1CCDE0C2002417BD /* pch */,
 				6358632D1CCDE02A002417BD /* audioLib */,
 				6358632E1CCDE0A3002417BD /* MineModel */,
 				635863301CCDE0D2002417BD /* MineView */,
-				635863311CCDE0E2002417BD /* MineVC */,
+				635863311CCDE0E2002417BD /* MainViewController */,
 				63875DC71CD095B40053385B /* AppDele */,
 			);
 			name = codeFile;
@@ -589,6 +602,7 @@
 				63A804341CD25977001B23C1 /* CYLPlusButtonSubclass.m in Sources */,
 				63A804331CD25977001B23C1 /* CYLSameCityViewController.m in Sources */,
 				63A8042F1CD25977001B23C1 /* CYLHomeViewController.m in Sources */,
+				63CB96091CD9CBB1002D4994 /* DBManager.m in Sources */,
 				D0C9C5501C3BAB780087D987 /* HHBombItem.m in Sources */,
 				63DB84621CACCFC30079E0B5 /* AppDelegate+Audio.m in Sources */,
 				63A804311CD25977001B23C1 /* CYLMineViewController.m in Sources */,

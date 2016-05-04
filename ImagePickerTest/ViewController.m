@@ -15,8 +15,10 @@
 #import "AppDelegate.h"
 #import "AppDelegate+Audio.h"
 #import  "AFNetworking.H"
-#import "FMDatabase.h"
+#import "DBManager.h"
 #import "HYBNetworking.h"
+
+//  c 函数
 void testAFNetWorking(void){
 //afnetworking
     
@@ -41,10 +43,10 @@ void testAFNetWorking(void){
 }
 
 @property (strong, nonatomic) IBOutlet UILabel *timeLabel;
-@property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
-@property (weak, nonatomic) IBOutlet UITextField *textField;
-@property (weak, nonatomic) IBOutlet UITextField *TFSetNumOfPlayers;
 @property (strong, nonatomic) IBOutlet UISlider *slider;
+@property (weak,   nonatomic) IBOutlet UICollectionView *collectionView;
+@property (weak,   nonatomic) IBOutlet UITextField *textField;
+@property (weak,   nonatomic) IBOutlet UITextField *TFSetNumOfPlayers;
 
 @property (nonatomic, assign) int bombCountSetted;
 @property (nonatomic, assign) int countOfMarkedFlags;
@@ -100,25 +102,8 @@ void testAFNetWorking(void){
 }
 #pragma mark - Init
 - (void)createDatabase{
-    
-//    __weak __typeof(self) weaself = self;
-
-    NSArray *docPaths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) ;
-    NSString *docBasePath = docPaths[0];
-    NSString *docFullPath = [docBasePath stringByAppendingString:@"/GameRecordDB.sqlite"];
-    _db = [FMDatabase databaseWithPath:docFullPath];
-    if (![_db open]) {
-        NSLog(@"could not open gameRecordDB.db ");
-        return;
-    }
-    BOOL result = [_db executeUpdate:@"CREATE TABLE  IF NOT EXISTS GameRecord(userCount integer , bombCount integer)"];
-    
-    if (result) {
-        NSLog(@"create table success");
-    } else {
-        NSLog(@"failed create table");
-    }
-
+    FMDatabase *db =  [DBManager CreateDBAtPath:@"/GameRecordDB.sqlite"];
+    self.db = db;
 }
 
 - (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event{
