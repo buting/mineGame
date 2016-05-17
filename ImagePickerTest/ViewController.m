@@ -89,7 +89,12 @@ void testAFNetWorking(void){
 - (void)testHYBNetWorking
 {
     [HYBNetworking getWithUrl:@"courses.json" refreshCache:YES success:^(id response) {
-        UCLog(@" %@",response);
+//        UCLog(@" %@",response);
+        NSData *data = [NSJSONSerialization dataWithJSONObject:response options:NSJSONWritingPrettyPrinted error:nil];
+        NSString *jsonString = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
+        
+        UCLog(@"===response is  %@ ",[response class]);
+        UCLog(@"===== %@   class -%@",jsonString,[jsonString class]);
     } fail:^(NSError *error) {
         UCLog(@"%@",error);
     }];
