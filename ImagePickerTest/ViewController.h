@@ -8,6 +8,11 @@
 
 #import <UIKit/UIKit.h>
 
+extern NSString *     const BNRBookApi ;
+extern NSTimeInterval const LCXTimeInterval ;
+extern const NSTimeInterval LCXTimeInterval2 ;
+
+
 @interface ViewController : UIViewController
 
 

@@ -18,11 +18,13 @@
 #import "DBManager.h"
 #import "HYBNetworking.h"
 
+
+NSString *const BNRBookApi = @"http://bookapi.bignerdranch.com/courses.json" ;
+static   NSString *const BNRBookApiLocal =  @"http://bookapi.bignerdranch.com/courses.json" ;
 //  c 函数
 void testAFNetWorking(void){
 //afnetworking
-    
-    NSURL *URL = [NSURL URLWithString:@"http://bookapi.bignerdranch.com/courses.json"];
+    NSURL *URL = [NSURL URLWithString:BNRBookApiLocal];
     AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
     [manager GET:URL.absoluteString parameters:nil progress:nil success:^(NSURLSessionTask *task, id responseObject) {
         NSLog(@"JSON: %@", responseObject);
