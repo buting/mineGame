@@ -18,8 +18,11 @@
 #import "DBManager.h"
 #import "HYBNetworking.h"
 
+#define repeatTest @"test"
+//#define repeatTest @"test2"  // 使用宏的坏处之2 ，若使用const 则会直接红色警报
 
 NSString *const BNRBookApi = @"http://bookapi.bignerdranch.com/courses.json" ;
+
 static   NSString *const BNRBookApiLocal =  @"http://bookapi.bignerdranch.com/courses.json" ;
 //  c 函数
 void testAFNetWorking(void){
