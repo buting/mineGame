@@ -23,6 +23,9 @@
 		63A804DD1CD25DD8001B23C1 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 63A804DC1CD25DD8001B23C1 /* Images.xcassets */; };
 		63CB96091CD9CBB1002D4994 /* DBManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 63CB96081CD9CBB1002D4994 /* DBManager.m */; };
 		63DB84621CACCFC30079E0B5 /* AppDelegate+Audio.m in Sources */ = {isa = PBXBuildFile; fileRef = 63DB84611CACCFC30079E0B5 /* AppDelegate+Audio.m */; };
+		63DD6DDB1D02788B00965117 /* LCXPlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 63DD6DDA1D02788B00965117 /* LCXPlayer.m */; };
+		63DD6DDE1D0278A800965117 /* LCXPlayerMaster.m in Sources */ = {isa = PBXBuildFile; fileRef = 63DD6DDD1D0278A800965117 /* LCXPlayerMaster.m */; };
+		63DD6DE11D0278C200965117 /* LCXPlayerFresh.m in Sources */ = {isa = PBXBuildFile; fileRef = 63DD6DE01D0278C200965117 /* LCXPlayerFresh.m */; };
 		63FA7EE31CC9AE3300FDDD05 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 63FA7EDF1CC9AE3300FDDD05 /* Default-568h@2x.png */; };
 		63FA7EE41CC9AE3300FDDD05 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 63FA7EE01CC9AE3300FDDD05 /* Default.png */; };
 		63FA7EE51CC9AE3300FDDD05 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 63FA7EE11CC9AE3300FDDD05 /* Default@2x.png */; };
@@ -84,6 +87,12 @@
 		63CB96081CD9CBB1002D4994 /* DBManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DBManager.m; sourceTree = "<group>"; };
 		63DB84601CACCFC30079E0B5 /* AppDelegate+Audio.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "AppDelegate+Audio.h"; sourceTree = "<group>"; };
 		63DB84611CACCFC30079E0B5 /* AppDelegate+Audio.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "AppDelegate+Audio.m"; sourceTree = "<group>"; };
+		63DD6DD91D02788B00965117 /* LCXPlayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LCXPlayer.h; sourceTree = "<group>"; };
+		63DD6DDA1D02788B00965117 /* LCXPlayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LCXPlayer.m; sourceTree = "<group>"; };
+		63DD6DDC1D0278A800965117 /* LCXPlayerMaster.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LCXPlayerMaster.h; sourceTree = "<group>"; };
+		63DD6DDD1D0278A800965117 /* LCXPlayerMaster.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LCXPlayerMaster.m; sourceTree = "<group>"; };
+		63DD6DDF1D0278C200965117 /* LCXPlayerFresh.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LCXPlayerFresh.h; sourceTree = "<group>"; };
+		63DD6DE01D0278C200965117 /* LCXPlayerFresh.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LCXPlayerFresh.m; sourceTree = "<group>"; };
 		63FA7EDF1CC9AE3300FDDD05 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		63FA7EE01CC9AE3300FDDD05 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
 		63FA7EE11CC9AE3300FDDD05 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
@@ -288,6 +297,19 @@
 			name = manager;
 			sourceTree = "<group>";
 		};
+		63DD6DD81D02782300965117 /* Class  Cluster */ = {
+			isa = PBXGroup;
+			children = (
+				63DD6DD91D02788B00965117 /* LCXPlayer.h */,
+				63DD6DDA1D02788B00965117 /* LCXPlayer.m */,
+				63DD6DDC1D0278A800965117 /* LCXPlayerMaster.h */,
+				63DD6DDD1D0278A800965117 /* LCXPlayerMaster.m */,
+				63DD6DDF1D0278C200965117 /* LCXPlayerFresh.h */,
+				63DD6DE01D0278C200965117 /* LCXPlayerFresh.m */,
+			);
+			name = "Class  Cluster";
+			sourceTree = "<group>";
+		};
 		63FE10AF1CBED574002EE082 /* picResource */ = {
 			isa = PBXGroup;
 			children = (
@@ -347,7 +369,7 @@
 			children = (
 				63A8041C1CD25977001B23C1 /* CYLTabBarClasses */,
 				63FE10B01CBED588002EE082 /* Resouces */,
-				D0D716E21C1AA8EB0086E813 /* allCodeFiles */,
+				D0D716E21C1AA8EB0086E813 /* MineGame */,
 				D0D717071C1AA8EB0086E813 /* useless */,
 				D0D716E11C1AA8EB0086E813 /* Products */,
 				9BCC7A09A4A6EE6A1CD9BF35 /* Pods */,
@@ -365,12 +387,13 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		D0D716E21C1AA8EB0086E813 /* allCodeFiles */ = {
+		D0D716E21C1AA8EB0086E813 /* MineGame */ = {
 			isa = PBXGroup;
 			children = (
+				63DD6DD81D02782300965117 /* Class  Cluster */,
 				63FE10B11CBED5F9002EE082 /* codeFile */,
 			);
-			name = allCodeFiles;
+			name = MineGame;
 			path = ImagePickerTest;
 			sourceTree = "<group>";
 		};
@@ -595,6 +618,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				63DD6DDB1D02788B00965117 /* LCXPlayer.m in Sources */,
 				63A804301CD25977001B23C1 /* CYLMessageViewController.m in Sources */,
 				638782291CD2576300943629 /* CYLTabBarControllerConfig.m in Sources */,
 				63A804321CD25977001B23C1 /* CYLDetailsViewController.m in Sources */,
@@ -605,7 +629,9 @@
 				63CB96091CD9CBB1002D4994 /* DBManager.m in Sources */,
 				D0C9C5501C3BAB780087D987 /* HHBombItem.m in Sources */,
 				63DB84621CACCFC30079E0B5 /* AppDelegate+Audio.m in Sources */,
+				63DD6DE11D0278C200965117 /* LCXPlayerFresh.m in Sources */,
 				63A804311CD25977001B23C1 /* CYLMineViewController.m in Sources */,
+				63DD6DDE1D0278A800965117 /* LCXPlayerMaster.m in Sources */,
 				D0D716EB1C1AA8EB0086E813 /* ViewController.m in Sources */,
 				D0D716E81C1AA8EB0086E813 /* AppDelegate.m in Sources */,
 				D0D716E51C1AA8EB0086E813 /* main.m in Sources */,

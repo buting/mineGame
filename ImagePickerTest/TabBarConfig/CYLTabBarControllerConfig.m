@@ -44,7 +44,7 @@
  */
 - (CYLTabBarController *)tabBarController {
     if (_tabBarController == nil) {
-        CYLHomeViewController *firstViewController = [[CYLHomeViewController alloc] init];
+//        CYLHomeViewController *firstViewController = [[CYLHomeViewController alloc] init];
         
         UIStoryboard *sb = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
         ViewController *vc = [sb instantiateViewControllerWithIdentifier:@"VC"];
