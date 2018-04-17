@@ -1,5 +1,6 @@
 source 'https://github.com/CocoaPods/Specs.git'
 platform :ios, '7.0'
+target 'MineGame'
 pod 'AFNetworking', '~> 3.0'
 pod 'FMDB', '~> 2.5'
 pod 'HYBNetworking', '~> 3.0.0'

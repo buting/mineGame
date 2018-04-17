@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		21C56B4F56687F25733060C1 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 97C0C9FA461A67E32DC245E0 /* libPods.a */; };
 		6306794F1C96BC2500BD8163 /* flag@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6306794E1C96BC2500BD8163 /* flag@2x.png */; };
 		630679511C96BC3300BD8163 /* mineButtonBorder@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 630679501C96BC3300BD8163 /* mineButtonBorder@2x.png */; };
 		630679531C96BC3900BD8163 /* mineCryFace@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 630679521C96BC3900BD8163 /* mineCryFace@2x.png */; };
@@ -41,6 +40,7 @@
 		D0D716F31C1AA8EB0086E813 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D0D716F11C1AA8EB0086E813 /* LaunchScreen.storyboard */; };
 		D0D716FE1C1AA8EB0086E813 /* ImagePickerTestTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D0D716FD1C1AA8EB0086E813 /* ImagePickerTestTests.m */; };
 		D0D717091C1AA8EB0086E813 /* ImagePickerTestUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = D0D717081C1AA8EB0086E813 /* ImagePickerTestUITests.m */; };
+		F3D8A6FF39A0527A44A24B92 /* libPods-MineGame.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 25B56686EDC99D70BAE90B91 /* libPods-MineGame.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -61,8 +61,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		02B62DBAF94073880AC40E8F /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
-		1702E09E05F579E31B137A97 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
+		25B56686EDC99D70BAE90B91 /* libPods-MineGame.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-MineGame.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		6306794E1C96BC2500BD8163 /* flag@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "flag@2x.png"; sourceTree = "<group>"; };
 		630679501C96BC3300BD8163 /* mineButtonBorder@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "mineButtonBorder@2x.png"; sourceTree = "<group>"; };
 		630679521C96BC3900BD8163 /* mineCryFace@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "mineCryFace@2x.png"; sourceTree = "<group>"; };
@@ -98,7 +97,6 @@
 		63FA7EE11CC9AE3300FDDD05 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
 		63FA7EE21CC9AE3300FDDD05 /* icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon@2x.png"; sourceTree = "<group>"; };
 		63FA7F271CCA1B8700FDDD05 /* MacroDefine.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MacroDefine.pch; path = pch/MacroDefine.pch; sourceTree = SOURCE_ROOT; };
-		97C0C9FA461A67E32DC245E0 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		D0C9C5491C3BA8F90087D987 /* bomb@2x.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "bomb@2x.jpg"; sourceTree = "<group>"; };
 		D0C9C54B1C3BA9210087D987 /* HHCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HHCollectionViewCell.h; sourceTree = "<group>"; };
 		D0C9C54C1C3BA9210087D987 /* HHCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HHCollectionViewCell.m; sourceTree = "<group>"; };
@@ -120,6 +118,8 @@
 		D0D717041C1AA8EB0086E813 /* MineGame.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MineGame.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		D0D717081C1AA8EB0086E813 /* ImagePickerTestUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ImagePickerTestUITests.m; sourceTree = "<group>"; };
 		D0D7170A1C1AA8EB0086E813 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		DDFE96C4B416659B434C3375 /* Pods-MineGame.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MineGame.release.xcconfig"; path = "Pods/Target Support Files/Pods-MineGame/Pods-MineGame.release.xcconfig"; sourceTree = "<group>"; };
+		FD357B2A0C525B88A005153D /* Pods-MineGame.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MineGame.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MineGame/Pods-MineGame.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -127,7 +127,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				21C56B4F56687F25733060C1 /* libPods.a in Frameworks */,
+				F3D8A6FF39A0527A44A24B92 /* libPods-MineGame.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -148,10 +148,10 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		2AB27C07EA78D4948EA1DADC /* Frameworks */ = {
+		21B0A6752881125DE2FCE5FE /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				97C0C9FA461A67E32DC245E0 /* libPods.a */,
+				25B56686EDC99D70BAE90B91 /* libPods-MineGame.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -355,15 +355,6 @@
 			name = codeFile;
 			sourceTree = "<group>";
 		};
-		9BCC7A09A4A6EE6A1CD9BF35 /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				02B62DBAF94073880AC40E8F /* Pods.debug.xcconfig */,
-				1702E09E05F579E31B137A97 /* Pods.release.xcconfig */,
-			);
-			name = Pods;
-			sourceTree = "<group>";
-		};
 		D0D716D71C1AA8EA0086E813 = {
 			isa = PBXGroup;
 			children = (
@@ -372,8 +363,8 @@
 				D0D716E21C1AA8EB0086E813 /* MineGame */,
 				D0D717071C1AA8EB0086E813 /* useless */,
 				D0D716E11C1AA8EB0086E813 /* Products */,
-				9BCC7A09A4A6EE6A1CD9BF35 /* Pods */,
-				2AB27C07EA78D4948EA1DADC /* Frameworks */,
+				D8F25621F06BED277C22464B /* Pods */,
+				21B0A6752881125DE2FCE5FE /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -426,6 +417,15 @@
 			path = ImagePickerTestUITests;
 			sourceTree = "<group>";
 		};
+		D8F25621F06BED277C22464B /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				FD357B2A0C525B88A005153D /* Pods-MineGame.debug.xcconfig */,
+				DDFE96C4B416659B434C3375 /* Pods-MineGame.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -433,12 +433,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = D0D7170D1C1AA8EB0086E813 /* Build configuration list for PBXNativeTarget "MineGame" */;
 			buildPhases = (
-				D1A2F2BF4443E8DEFDE10AD8 /* Check Pods Manifest.lock */,
+				8BD346E68DC483A424106476 /* [CP] Check Pods Manifest.lock */,
 				D0D716DC1C1AA8EB0086E813 /* Sources */,
 				D0D716DD1C1AA8EB0086E813 /* Frameworks */,
 				D0D716DE1C1AA8EB0086E813 /* Resources */,
-				5A5C569419A743E08BBD86C7 /* Embed Pods Frameworks */,
-				6A58E93D8FB3A088A1B272A1 /* Copy Pods Resources */,
+				335E4134FFF154B0A1033FB9 /* [CP] Embed Pods Frameworks */,
+				48977B35BD97D4E97B6D1278 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -496,6 +496,7 @@
 				TargetAttributes = {
 					D0D716DF1C1AA8EB0086E813 = {
 						CreatedOnToolsVersion = 7.1;
+						DevelopmentTeam = WG4Q73R8TW;
 					};
 					D0D716F81C1AA8EB0086E813 = {
 						CreatedOnToolsVersion = 7.1;
@@ -566,49 +567,52 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		5A5C569419A743E08BBD86C7 /* Embed Pods Frameworks */ = {
+		335E4134FFF154B0A1033FB9 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Embed Pods Frameworks";
+			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-frameworks.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-MineGame/Pods-MineGame-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		6A58E93D8FB3A088A1B272A1 /* Copy Pods Resources */ = {
+		48977B35BD97D4E97B6D1278 /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Copy Pods Resources";
+			name = "[CP] Copy Pods Resources";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-resources.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-MineGame/Pods-MineGame-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		D1A2F2BF4443E8DEFDE10AD8 /* Check Pods Manifest.lock */ = {
+		8BD346E68DC483A424106476 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
 			);
-			name = "Check Pods Manifest.lock";
+			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-MineGame-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -777,16 +781,17 @@
 		};
 		D0D7170E1C1AA8EB0086E813 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 02B62DBAF94073880AC40E8F /* Pods.debug.xcconfig */;
+			baseConfigurationReference = FD357B2A0C525B88A005153D /* Pods-MineGame.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = "Brand Assets";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				DEVELOPMENT_TEAM = WG4Q73R8TW;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = /Users/bt/mineGame/pch/MacroDefine.pch;
+				GCC_PREFIX_HEADER = "${SRCROOT}/pch/MacroDefine.pch";
 				INFOPLIST_FILE = ImagePickerTest/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = Chaoxinfan.ImagePickerTest;
+				PRODUCT_BUNDLE_IDENTIFIER = lin.ImagePickerTest;
 				PRODUCT_NAME = MineGame;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
@@ -794,16 +799,17 @@
 		};
 		D0D7170F1C1AA8EB0086E813 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 1702E09E05F579E31B137A97 /* Pods.release.xcconfig */;
+			baseConfigurationReference = DDFE96C4B416659B434C3375 /* Pods-MineGame.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = "Brand Assets";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				DEVELOPMENT_TEAM = WG4Q73R8TW;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = /Users/bt/mineGame/pch/MacroDefine.pch;
+				GCC_PREFIX_HEADER = "${SRCROOT}/pch/MacroDefine.pch";
 				INFOPLIST_FILE = ImagePickerTest/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = Chaoxinfan.ImagePickerTest;
+				PRODUCT_BUNDLE_IDENTIFIER = lin.ImagePickerTest;
 				PRODUCT_NAME = MineGame;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
